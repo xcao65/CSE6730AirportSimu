@@ -1,0 +1,609 @@
+  -------------------------------------------------  
+  ------Start to schedule events by timestamp------  
+5.0: Airplane [p0] arrived at Airport [JFK]
+8.0: Airplane [p8] arrived at Airport [JFK]
+17.0: Airplane [p5] arrived at Airport [JFK]
+30.0:Airplane [p0] lands at Airport [JFK]
+43.0: Airplane [p7] arrived at Airport [ATL]
+48.0: Airplane [p2] arrived at Airport [ATL]
+48.0: Airplane [p9] arrived at Airport [JFK]
+55.0:Airplane [p8] lands at Airport [JFK]
+63.0:Airplane [p7] lands at Airport [ATL]
+71.0: Airplane [p6] arrived at Airport [JFK]
+75.0: Airplane [p0] request departing from Airport [JFK]
+80.0:Airplane [p5] lands at Airport [JFK]
+83.0:Airplane [p2] lands at Airport [ATL]
+86.0: Airplane [p3] arrived at Airport [LAX]
+86.0: Airplane [p4] arrived at Airport [ATL]
+88.0: Airplane [p1] arrived at Airport [SFO]
+98.0: Airplane [p7] request departing from Airport [ATL]
+100.0: Airplane [p8] request departing from Airport [JFK]
+103.0:Airplane [p1] lands at Airport [SFO]
+105.0:Airplane [p9] lands at Airport [JFK]
+106.0:Airplane [p3] lands at Airport [LAX]
+106.0:Airplane [p4] lands at Airport [ATL]
+118.0: Airplane [p2] request departing from Airport [ATL]
+125.0: Airplane [p5] request departing from Airport [JFK]
+126.0: Airplane [p7] has left Airport [ATL] for Airport [JFK], total flying time 168.56461088373658
+130.0:Airplane [p6] lands at Airport [JFK]
+133.0: Airplane [p1] request departing from Airport [SFO]
+141.0: Airplane [p4] request departing from Airport [ATL]
+146.0: Airplane [p3] request departing from Airport [LAX]
+146.0: Airplane [p2] has left Airport [ATL] for Airport [SFO], total flying time 351.67761922387473
+148.0: Airplane [p1] has left Airport [SFO] for Airport [SEA], total flying time 132.49207169295934
+150.0: Airplane [p9] request departing from Airport [JFK]
+155.0: Airplane [p0] has left Airport [JFK] for Airport [SEA], total flying time 514.7864775740453
+166.0: Airplane [p4] has left Airport [ATL] for Airport [LAX], total flying time 421.45302043279685
+166.0: Airplane [p3] has left Airport [LAX] for Airport [JFK], total flying time 500.94916456258363
+175.0: Airplane [p6] request departing from Airport [JFK]
+180.0: Airplane [p8] has left Airport [JFK] for Airport [SEA], total flying time 459.0517211437845
+205.0: Airplane [p5] has left Airport [JFK] for Airport [LAX], total flying time 495.74179278958377
+230.0: Airplane [p9] has left Airport [JFK] for Airport [LAX], total flying time 411.8338554953192
+255.0: Airplane [p6] has left Airport [JFK] for Airport [SFO], total flying time 507.34658954067766
+280.49207169295937: Airplane [p1] arrived at Airport [SEA]
+294.5646108837366: Airplane [p7] arrived at Airport [JFK]
+295.49207169295937:Airplane [p1] lands at Airport [SEA]
+319.5646108837366:Airplane [p7] lands at Airport [JFK]
+320.49207169295937: Airplane [p1] request departing from Airport [SEA]
+335.49207169295937: Airplane [p1] has left Airport [SEA] for Airport [JFK], total flying time 471.1076249313991
+364.5646108837366: Airplane [p7] request departing from Airport [JFK]
+389.5646108837366: Airplane [p7] has left Airport [JFK] for Airport [SEA], total flying time 536.0879869909023
+497.67761922387473: Airplane [p2] arrived at Airport [SFO]
+512.6776192238747:Airplane [p2] lands at Airport [SFO]
+542.6776192238747: Airplane [p2] request departing from Airport [SFO]
+557.6776192238747: Airplane [p2] has left Airport [SFO] for Airport [ATL], total flying time 351.67761922387473
+587.4530204327968: Airplane [p4] arrived at Airport [LAX]
+607.4530204327968:Airplane [p4] lands at Airport [LAX]
+639.0517211437846: Airplane [p8] arrived at Airport [SEA]
+641.8338554953192: Airplane [p9] arrived at Airport [LAX]
+647.4530204327968: Airplane [p4] request departing from Airport [LAX]
+654.0517211437846:Airplane [p8] lands at Airport [SEA]
+661.8338554953192:Airplane [p9] lands at Airport [LAX]
+666.9491645625836: Airplane [p3] arrived at Airport [JFK]
+669.7864775740453: Airplane [p0] arrived at Airport [SEA]
+679.0517211437846: Airplane [p8] request departing from Airport [SEA]
+681.8338554953192: Airplane [p4] has left Airport [LAX] for Airport [SFO], total flying time 73.23900373888546
+684.7864775740453:Airplane [p0] lands at Airport [SEA]
+691.9491645625836:Airplane [p3] lands at Airport [JFK]
+699.7864775740453: Airplane [p8] has left Airport [SEA] for Airport [SFO], total flying time 129.10152655121038
+700.7417927895838: Airplane [p5] arrived at Airport [LAX]
+701.8338554953192: Airplane [p9] request departing from Airport [LAX]
+709.7864775740453: Airplane [p0] request departing from Airport [SEA]
+720.7417927895838:Airplane [p5] lands at Airport [LAX]
+724.7864775740453: Airplane [p0] has left Airport [SEA] for Airport [JFK], total flying time 514.7864775740453
+736.9491645625836: Airplane [p3] request departing from Airport [JFK]
+740.7417927895838: Airplane [p9] has left Airport [LAX] for Airport [SEA], total flying time 159.2652554186764
+755.0728592342047: Airplane [p4] arrived at Airport [SFO]
+760.7417927895838: Airplane [p5] request departing from Airport [LAX]
+761.9491645625836: Airplane [p3] has left Airport [JFK] for Airport [LAX], total flying time 500.94916456258363
+762.3465895406777: Airplane [p6] arrived at Airport [SFO]
+770.0728592342047:Airplane [p4] lands at Airport [SFO]
+780.7417927895838: Airplane [p5] has left Airport [LAX] for Airport [JFK], total flying time 495.74179278958377
+785.0728592342047:Airplane [p6] lands at Airport [SFO]
+800.0728592342047: Airplane [p4] request departing from Airport [SFO]
+806.5996966243584: Airplane [p1] arrived at Airport [JFK]
+815.0728592342047: Airplane [p6] request departing from Airport [SFO]
+815.0728592342047: Airplane [p4] has left Airport [SFO] for Airport [ATL], total flying time 463.1080558768328
+828.8880041252557: Airplane [p8] arrived at Airport [SFO]
+830.0728592342047: Airplane [p6] has left Airport [SFO] for Airport [JFK], total flying time 507.34658954067766
+831.5996966243584:Airplane [p1] lands at Airport [JFK]
+845.0728592342047:Airplane [p8] lands at Airport [SFO]
+875.0728592342047: Airplane [p8] request departing from Airport [SFO]
+876.5996966243584: Airplane [p1] request departing from Airport [JFK]
+890.0728592342047: Airplane [p8] has left Airport [SFO] for Airport [JFK], total flying time 490.36845563872583
+900.0070482082601: Airplane [p9] arrived at Airport [SEA]
+901.5996966243584: Airplane [p1] has left Airport [JFK] for Airport [LAX], total flying time 481.72081279149455
+909.3552384477493: Airplane [p2] arrived at Airport [ATL]
+915.0070482082601:Airplane [p9] lands at Airport [SEA]
+925.6525978746389: Airplane [p7] arrived at Airport [SEA]
+929.3552384477493:Airplane [p2] lands at Airport [ATL]
+940.0070482082601: Airplane [p9] request departing from Airport [SEA]
+940.6525978746389:Airplane [p7] lands at Airport [SEA]
+955.6525978746389: Airplane [p9] has left Airport [SEA] for Airport [JFK], total flying time 402.7604047340976
+964.3552384477493: Airplane [p2] request departing from Airport [ATL]
+965.6525978746389: Airplane [p7] request departing from Airport [SEA]
+980.6525978746389: Airplane [p7] has left Airport [SEA] for Airport [ATL], total flying time 483.4451202429167
+984.3552384477493: Airplane [p2] has left Airport [ATL] for Airport [SEA], total flying time 358.8713776547248
+1239.5729551480906: Airplane [p0] arrived at Airport [JFK]
+1262.8983291251673: Airplane [p3] arrived at Airport [LAX]
+1264.5729551480906:Airplane [p0] lands at Airport [JFK]
+1276.4835855791675: Airplane [p5] arrived at Airport [JFK]
+1278.1809151110374: Airplane [p4] arrived at Airport [ATL]
+1282.8983291251673:Airplane [p3] lands at Airport [LAX]
+1298.1809151110374:Airplane [p4] lands at Airport [ATL]
+1301.4835855791675:Airplane [p5] lands at Airport [JFK]
+1309.5729551480906: Airplane [p0] request departing from Airport [JFK]
+1322.8983291251673: Airplane [p3] request departing from Airport [LAX]
+1333.1809151110374: Airplane [p4] request departing from Airport [ATL]
+1334.5729551480906: Airplane [p0] has left Airport [JFK] for Airport [SEA], total flying time 514.7864775740453
+1337.4194487748823: Airplane [p6] arrived at Airport [JFK]
+1342.8983291251673: Airplane [p3] has left Airport [LAX] for Airport [JFK], total flying time 500.94916456258363
+1343.226616102474: Airplane [p2] arrived at Airport [SEA]
+1346.4835855791675: Airplane [p5] request departing from Airport [JFK]
+1353.1809151110374: Airplane [p4] has left Airport [ATL] for Airport [JFK], total flying time 164.77664209983237
+1358.226616102474:Airplane [p2] lands at Airport [SEA]
+1358.4130026087364: Airplane [p9] arrived at Airport [JFK]
+1362.4194487748823:Airplane [p6] lands at Airport [JFK]
+1380.4413148729304: Airplane [p8] arrived at Airport [JFK]
+1383.226616102474: Airplane [p2] request departing from Airport [SEA]
+1383.320509415853: Airplane [p1] arrived at Airport [LAX]
+1387.4194487748823:Airplane [p9] lands at Airport [JFK]
+1398.226616102474: Airplane [p2] has left Airport [SEA] for Airport [SFO], total flying time 111.91736431401856
+1403.320509415853:Airplane [p1] lands at Airport [LAX]
+1407.4194487748823: Airplane [p6] request departing from Airport [JFK]
+1412.4194487748823:Airplane [p8] lands at Airport [JFK]
+1432.4194487748823: Airplane [p9] request departing from Airport [JFK]
+1437.4194487748823: Airplane [p5] has left Airport [JFK] for Airport [SFO], total flying time 517.8943356849745
+1443.320509415853: Airplane [p1] request departing from Airport [LAX]
+1457.4194487748823: Airplane [p8] request departing from Airport [JFK]
+1462.4194487748823: Airplane [p6] has left Airport [JFK] for Airport [SEA], total flying time 474.94556892269355
+1463.320509415853: Airplane [p1] has left Airport [LAX] for Airport [SFO], total flying time 65.84112457334147
+1464.0977181175556: Airplane [p7] arrived at Airport [ATL]
+1484.0977181175556:Airplane [p7] lands at Airport [ATL]
+1487.4194487748823: Airplane [p9] has left Airport [JFK] for Airport [SFO], total flying time 430.23691790064373
+1510.1439804164927: Airplane [p2] arrived at Airport [SFO]
+1512.4194487748823: Airplane [p8] has left Airport [JFK] for Airport [SEA], total flying time 459.0517211437845
+1517.9575572108697: Airplane [p4] arrived at Airport [JFK]
+1519.0977181175556: Airplane [p7] request departing from Airport [ATL]
+1525.1439804164927:Airplane [p2] lands at Airport [SFO]
+1529.1616339891943: Airplane [p1] arrived at Airport [SFO]
+1539.0977181175556: Airplane [p7] has left Airport [ATL] for Airport [SFO], total flying time 473.7542180808979
+1542.9575572108697:Airplane [p4] lands at Airport [JFK]
+1544.1616339891943:Airplane [p1] lands at Airport [SFO]
+1555.1439804164927: Airplane [p2] request departing from Airport [SFO]
+1570.1439804164927: Airplane [p2] has left Airport [SFO] for Airport [LAX], total flying time 55.616649596935204
+1574.1616339891943: Airplane [p1] request departing from Airport [SFO]
+1587.9575572108697: Airplane [p4] request departing from Airport [JFK]
+1589.1616339891943: Airplane [p1] has left Airport [SFO] for Airport [LAX], total flying time 65.84112457334147
+1612.9575572108697: Airplane [p4] has left Airport [JFK] for Airport [SFO], total flying time 559.791405538141
+1625.760630013428: Airplane [p2] arrived at Airport [LAX]
+1645.760630013428:Airplane [p2] lands at Airport [LAX]
+1655.0027585625357: Airplane [p1] arrived at Airport [LAX]
+1675.0027585625357:Airplane [p1] lands at Airport [LAX]
+1685.760630013428: Airplane [p2] request departing from Airport [LAX]
+1705.760630013428: Airplane [p2] has left Airport [LAX] for Airport [ATL], total flying time 320.045382410571
+1715.0027585625357: Airplane [p1] request departing from Airport [LAX]
+1735.0027585625357: Airplane [p1] has left Airport [LAX] for Airport [SFO], total flying time 65.84112457334147
+1800.8438831358771: Airplane [p1] arrived at Airport [SFO]
+1815.8438831358771:Airplane [p1] lands at Airport [SFO]
+1843.847493687751: Airplane [p3] arrived at Airport [JFK]
+1845.8438831358771: Airplane [p1] request departing from Airport [SFO]
+1849.3594327221358: Airplane [p0] arrived at Airport [SEA]
+1860.8438831358771: Airplane [p1] has left Airport [SFO] for Airport [ATL], total flying time 416.3294643741224
+1864.3594327221358:Airplane [p0] lands at Airport [SEA]
+1868.847493687751:Airplane [p3] lands at Airport [JFK]
+1889.3594327221358: Airplane [p0] request departing from Airport [SEA]
+1904.3594327221358: Airplane [p0] has left Airport [SEA] for Airport [ATL], total flying time 464.23538036571466
+1913.847493687751: Airplane [p3] request departing from Airport [JFK]
+1917.656366675526: Airplane [p9] arrived at Airport [SFO]
+1932.656366675526:Airplane [p9] lands at Airport [SFO]
+1937.365017697576: Airplane [p6] arrived at Airport [SEA]
+1938.847493687751: Airplane [p3] has left Airport [JFK] for Airport [ATL], total flying time 154.0453901983727
+1952.365017697576:Airplane [p6] lands at Airport [SEA]
+1955.3137844598568: Airplane [p5] arrived at Airport [SFO]
+1962.656366675526: Airplane [p9] request departing from Airport [SFO]
+1970.3137844598568:Airplane [p5] lands at Airport [SFO]
+1971.4711699186669: Airplane [p8] arrived at Airport [SEA]
+1977.365017697576: Airplane [p6] request departing from Airport [SEA]
+1985.3137844598568: Airplane [p9] has left Airport [SFO] for Airport [ATL], total flying time 355.9293348276176
+1986.4711699186669:Airplane [p8] lands at Airport [SEA]
+2000.3137844598568: Airplane [p5] request departing from Airport [SFO]
+2001.4711699186669: Airplane [p6] has left Airport [SEA] for Airport [JFK], total flying time 474.94556892269355
+2011.4711699186669: Airplane [p8] request departing from Airport [SEA]
+2012.8519361984536: Airplane [p7] arrived at Airport [SFO]
+2015.3137844598568: Airplane [p5] has left Airport [SFO] for Airport [SEA], total flying time 136.3483897879727
+2025.806012423999: Airplane [p2] arrived at Airport [ATL]
+2026.4711699186669: Airplane [p8] has left Airport [SEA] for Airport [JFK], total flying time 459.0517211437845
+2030.3137844598568:Airplane [p7] lands at Airport [SFO]
+2045.806012423999:Airplane [p2] lands at Airport [ATL]
+2060.313784459857: Airplane [p7] request departing from Airport [SFO]
+2075.313784459857: Airplane [p7] has left Airport [SFO] for Airport [SEA], total flying time 150.76684020233304
+2080.806012423999: Airplane [p2] request departing from Airport [ATL]
+2092.892883886124: Airplane [p3] arrived at Airport [ATL]
+2100.806012423999: Airplane [p2] has left Airport [ATL] for Airport [JFK], total flying time 125.12902002461674
+2120.806012423999:Airplane [p3] lands at Airport [ATL]
+2151.6621742478296: Airplane [p5] arrived at Airport [SEA]
+2155.806012423999: Airplane [p3] request departing from Airport [ATL]
+2166.6621742478296:Airplane [p5] lands at Airport [SEA]
+2172.748962749011: Airplane [p4] arrived at Airport [SFO]
+2175.806012423999: Airplane [p3] has left Airport [ATL] for Airport [SEA], total flying time 441.80383887745535
+2187.748962749011:Airplane [p4] lands at Airport [SFO]
+2191.6621742478296: Airplane [p5] request departing from Airport [SEA]
+2206.6621742478296: Airplane [p5] has left Airport [SEA] for Airport [SFO], total flying time 136.3483897879727
+2217.748962749011: Airplane [p4] request departing from Airport [SFO]
+2225.935032448616: Airplane [p2] arrived at Airport [JFK]
+2226.08062466219: Airplane [p7] arrived at Airport [SEA]
+2232.748962749011: Airplane [p4] has left Airport [SFO] for Airport [LAX], total flying time 73.23900373888546
+2241.08062466219:Airplane [p7] lands at Airport [SEA]
+2250.935032448616:Airplane [p2] lands at Airport [JFK]
+2266.08062466219: Airplane [p7] request departing from Airport [SEA]
+2277.1733475099995: Airplane [p1] arrived at Airport [ATL]
+2281.08062466219: Airplane [p7] has left Airport [SEA] for Airport [SFO], total flying time 150.76684020233304
+2295.935032448616: Airplane [p2] request departing from Airport [JFK]
+2297.1733475099995:Airplane [p1] lands at Airport [ATL]
+2305.9879664878963: Airplane [p4] arrived at Airport [LAX]
+2320.935032448616: Airplane [p2] has left Airport [JFK] for Airport [SEA], total flying time 397.9492736195265
+2325.9879664878963:Airplane [p4] lands at Airport [LAX]
+2332.1733475099995: Airplane [p1] request departing from Airport [ATL]
+2341.2431192874747: Airplane [p9] arrived at Airport [ATL]
+2343.0105640358024: Airplane [p5] arrived at Airport [SFO]
+2352.1733475099995: Airplane [p1] has left Airport [ATL] for Airport [LAX], total flying time 378.8820082678679
+2358.0105640358024:Airplane [p5] lands at Airport [SFO]
+2365.9879664878963: Airplane [p4] request departing from Airport [LAX]
+2368.5948130878505: Airplane [p0] arrived at Airport [ATL]
+2372.1733475099995:Airplane [p9] lands at Airport [ATL]
+2385.9879664878963: Airplane [p4] has left Airport [LAX] for Airport [ATL], total flying time 421.45302043279685
+2388.0105640358024: Airplane [p5] request departing from Airport [SFO]
+2392.1733475099995:Airplane [p0] lands at Airport [ATL]
+2403.0105640358024: Airplane [p5] has left Airport [SFO] for Airport [SEA], total flying time 136.3483897879727
+2407.1733475099995: Airplane [p9] request departing from Airport [ATL]
+2427.1733475099995: Airplane [p0] request departing from Airport [ATL]
+2427.1733475099995: Airplane [p9] has left Airport [ATL] for Airport [JFK], total flying time 126.64180610436168
+2431.8474648645233: Airplane [p7] arrived at Airport [SFO]
+2446.8474648645233:Airplane [p7] lands at Airport [SFO]
+2447.1733475099995: Airplane [p0] has left Airport [ATL] for Airport [SFO], total flying time 454.92954716377614
+2476.4167388413603: Airplane [p6] arrived at Airport [JFK]
+2476.8474648645233: Airplane [p7] request departing from Airport [SFO]
+2485.5228910624514: Airplane [p8] arrived at Airport [JFK]
+2491.8474648645233: Airplane [p7] has left Airport [SFO] for Airport [LAX], total flying time 74.92265899725064
+2501.4167388413603:Airplane [p6] lands at Airport [JFK]
+2526.4167388413603:Airplane [p8] lands at Airport [JFK]
+2539.358953823775: Airplane [p5] arrived at Airport [SEA]
+2546.4167388413603: Airplane [p6] request departing from Airport [JFK]
+2553.8151536143614: Airplane [p9] arrived at Airport [JFK]
+2554.358953823775:Airplane [p5] lands at Airport [SEA]
+2566.7701238617738: Airplane [p7] arrived at Airport [LAX]
+2571.4167388413603: Airplane [p8] request departing from Airport [JFK]
+2571.4167388413603: Airplane [p6] has left Airport [JFK] for Airport [ATL], total flying time 149.3393192147157
+2579.358953823775: Airplane [p5] request departing from Airport [SEA]
+2586.7701238617738:Airplane [p7] lands at Airport [LAX]
+2594.358953823775: Airplane [p5] has left Airport [SEA] for Airport [LAX], total flying time 191.71430953724249
+2596.4167388413603:Airplane [p9] lands at Airport [JFK]
+2617.6098513014545: Airplane [p3] arrived at Airport [SEA]
+2621.4167388413603: Airplane [p8] has left Airport [JFK] for Airport [SEA], total flying time 459.0517211437845
+2626.7701238617738: Airplane [p7] request departing from Airport [LAX]
+2632.6098513014545:Airplane [p3] lands at Airport [SEA]
+2641.4167388413603: Airplane [p9] request departing from Airport [JFK]
+2646.7701238617738: Airplane [p7] has left Airport [LAX] for Airport [SEA], total flying time 211.98754686761754
+2657.6098513014545: Airplane [p3] request departing from Airport [SEA]
+2666.4167388413603: Airplane [p9] has left Airport [JFK] for Airport [SFO], total flying time 430.23691790064373
+2672.6098513014545: Airplane [p3] has left Airport [SEA] for Airport [JFK], total flying time 489.9123410526104
+2718.8843060681425: Airplane [p2] arrived at Airport [SEA]
+2720.7560580560757: Airplane [p6] arrived at Airport [ATL]
+2731.0553557778676: Airplane [p1] arrived at Airport [LAX]
+2733.8843060681425:Airplane [p2] lands at Airport [SEA]
+2740.7560580560757:Airplane [p6] lands at Airport [ATL]
+2751.0553557778676:Airplane [p1] lands at Airport [LAX]
+2758.8843060681425: Airplane [p2] request departing from Airport [SEA]
+2773.8843060681425: Airplane [p2] has left Airport [SEA] for Airport [LAX], total flying time 157.36276943244647
+2775.7560580560757: Airplane [p6] request departing from Airport [ATL]
+2786.073263361018: Airplane [p5] arrived at Airport [LAX]
+2791.0553557778676: Airplane [p1] request departing from Airport [LAX]
+2795.7560580560757: Airplane [p6] has left Airport [ATL] for Airport [SEA], total flying time 428.3067765899567
+2806.073263361018:Airplane [p5] lands at Airport [LAX]
+2807.440986920693: Airplane [p4] arrived at Airport [ATL]
+2826.073263361018: Airplane [p1] has left Airport [LAX] for Airport [ATL], total flying time 378.8820082678679
+2827.440986920693:Airplane [p4] lands at Airport [ATL]
+2846.073263361018: Airplane [p5] request departing from Airport [LAX]
+2858.757670729391: Airplane [p7] arrived at Airport [SEA]
+2862.440986920693: Airplane [p4] request departing from Airport [ATL]
+2866.073263361018: Airplane [p5] has left Airport [LAX] for Airport [SEA], total flying time 191.71430953724249
+2873.757670729391:Airplane [p7] lands at Airport [SEA]
+2882.440986920693: Airplane [p4] has left Airport [ATL] for Airport [SEA], total flying time 472.581184956559
+2898.757670729391: Airplane [p7] request departing from Airport [SEA]
+2902.1028946737756: Airplane [p0] arrived at Airport [SFO]
+2913.757670729391: Airplane [p7] has left Airport [SEA] for Airport [JFK], total flying time 536.0879869909023
+2917.1028946737756:Airplane [p0] lands at Airport [SFO]
+2931.247075500589: Airplane [p2] arrived at Airport [LAX]
+2947.1028946737756: Airplane [p0] request departing from Airport [SFO]
+2951.247075500589:Airplane [p2] lands at Airport [LAX]
+2962.1028946737756: Airplane [p0] has left Airport [SFO] for Airport [SEA], total flying time 144.77610483005492
+2991.247075500589: Airplane [p2] request departing from Airport [LAX]
+3011.247075500589: Airplane [p2] has left Airport [LAX] for Airport [JFK], total flying time 406.91433845015325
+3057.7875728982604: Airplane [p5] arrived at Airport [SEA]
+3072.7875728982604:Airplane [p5] lands at Airport [SEA]
+3080.468459985145: Airplane [p8] arrived at Airport [SEA]
+3095.468459985145:Airplane [p8] lands at Airport [SEA]
+3096.653656742004: Airplane [p9] arrived at Airport [SFO]
+3097.7875728982604: Airplane [p5] request departing from Airport [SEA]
+3106.8789995038305: Airplane [p0] arrived at Airport [SEA]
+3111.653656742004:Airplane [p9] lands at Airport [SFO]
+3112.7875728982604: Airplane [p5] has left Airport [SEA] for Airport [LAX], total flying time 191.71430953724249
+3120.468459985145: Airplane [p8] request departing from Airport [SEA]
+3127.7875728982604:Airplane [p0] lands at Airport [SEA]
+3141.653656742004: Airplane [p9] request departing from Airport [SFO]
+3142.7875728982604: Airplane [p8] has left Airport [SEA] for Airport [SFO], total flying time 129.10152655121038
+3152.7875728982604: Airplane [p0] request departing from Airport [SEA]
+3156.653656742004: Airplane [p9] has left Airport [SFO] for Airport [ATL], total flying time 355.9293348276176
+3162.522192354065: Airplane [p3] arrived at Airport [JFK]
+3167.7875728982604: Airplane [p0] has left Airport [SEA] for Airport [ATL], total flying time 464.23538036571466
+3187.522192354065:Airplane [p3] lands at Airport [JFK]
+3204.955271628886: Airplane [p1] arrived at Airport [ATL]
+3224.0628346460326: Airplane [p6] arrived at Airport [SEA]
+3224.955271628886:Airplane [p1] lands at Airport [ATL]
+3232.522192354065: Airplane [p3] request departing from Airport [JFK]
+3239.0628346460326:Airplane [p6] lands at Airport [SEA]
+3257.522192354065: Airplane [p3] has left Airport [JFK] for Airport [LAX], total flying time 500.94916456258363
+3259.955271628886: Airplane [p1] request departing from Airport [ATL]
+3264.0628346460326: Airplane [p6] request departing from Airport [SEA]
+3271.889099449471: Airplane [p8] arrived at Airport [SFO]
+3279.0628346460326: Airplane [p6] has left Airport [SEA] for Airport [ATL], total flying time 428.3067765899567
+3279.955271628886: Airplane [p1] has left Airport [ATL] for Airport [SFO], total flying time 416.3294643741224
+3286.889099449471:Airplane [p8] lands at Airport [SFO]
+3304.501882435503: Airplane [p5] arrived at Airport [LAX]
+3316.889099449471: Airplane [p8] request departing from Airport [SFO]
+3324.501882435503:Airplane [p5] lands at Airport [LAX]
+3331.889099449471: Airplane [p8] has left Airport [SFO] for Airport [LAX], total flying time 64.15621390512604
+3355.022171877252: Airplane [p4] arrived at Airport [SEA]
+3364.501882435503: Airplane [p5] request departing from Airport [LAX]
+3370.022171877252:Airplane [p4] lands at Airport [SEA]
+3384.501882435503: Airplane [p5] has left Airport [LAX] for Airport [ATL], total flying time 389.90975902826324
+3395.022171877252: Airplane [p4] request departing from Airport [SEA]
+3396.045313354597: Airplane [p8] arrived at Airport [LAX]
+3410.022171877252: Airplane [p4] has left Airport [SEA] for Airport [ATL], total flying time 472.581184956559
+3416.045313354597:Airplane [p8] lands at Airport [LAX]
+3418.161413950742: Airplane [p2] arrived at Airport [JFK]
+3443.161413950742:Airplane [p2] lands at Airport [JFK]
+3449.8456577202933: Airplane [p7] arrived at Airport [JFK]
+3456.045313354597: Airplane [p8] request departing from Airport [LAX]
+3474.8456577202933:Airplane [p7] lands at Airport [JFK]
+3476.045313354597: Airplane [p8] has left Airport [LAX] for Airport [JFK], total flying time 469.3933116767516
+3488.161413950742: Airplane [p2] request departing from Airport [JFK]
+3512.5829915696213: Airplane [p9] arrived at Airport [ATL]
+3513.161413950742: Airplane [p2] has left Airport [JFK] for Airport [SEA], total flying time 397.9492736195265
+3519.8456577202933: Airplane [p7] request departing from Airport [JFK]
+3532.5829915696213:Airplane [p9] lands at Airport [ATL]
+3544.8456577202933: Airplane [p7] has left Airport [JFK] for Airport [SEA], total flying time 536.0879869909023
+3567.5829915696213: Airplane [p9] request departing from Airport [ATL]
+3587.5829915696213: Airplane [p9] has left Airport [ATL] for Airport [SEA], total flying time 363.21006443120683
+3632.022953263975: Airplane [p0] arrived at Airport [ATL]
+3652.022953263975:Airplane [p0] lands at Airport [ATL]
+3687.022953263975: Airplane [p0] request departing from Airport [ATL]
+3696.284736003008: Airplane [p1] arrived at Airport [SFO]
+3707.022953263975: Airplane [p0] has left Airport [ATL] for Airport [SFO], total flying time 454.92954716377614
+3707.3696112359894: Airplane [p6] arrived at Airport [ATL]
+3711.284736003008:Airplane [p1] lands at Airport [SFO]
+3727.3696112359894:Airplane [p6] lands at Airport [ATL]
+3741.284736003008: Airplane [p1] request departing from Airport [SFO]
+3756.284736003008: Airplane [p1] has left Airport [SFO] for Airport [LAX], total flying time 65.84112457334147
+3758.4713569166483: Airplane [p3] arrived at Airport [LAX]
+3762.3696112359894: Airplane [p6] request departing from Airport [ATL]
+3774.411641463766: Airplane [p5] arrived at Airport [ATL]
+3778.4713569166483:Airplane [p3] lands at Airport [LAX]
+3782.3696112359894: Airplane [p6] has left Airport [ATL] for Airport [LAX], total flying time 381.9686234065063
+3802.3696112359894:Airplane [p5] lands at Airport [ATL]
+3818.4713569166483: Airplane [p3] request departing from Airport [LAX]
+3822.1258605763496: Airplane [p1] arrived at Airport [LAX]
+3837.3696112359894: Airplane [p5] request departing from Airport [ATL]
+3838.4713569166483: Airplane [p3] has left Airport [LAX] for Airport [JFK], total flying time 500.94916456258363
+3857.3696112359894: Airplane [p5] has left Airport [ATL] for Airport [SEA], total flying time 437.2112833797687
+3858.4713569166483:Airplane [p1] lands at Airport [LAX]
+3882.6033568338107: Airplane [p4] arrived at Airport [ATL]
+3898.4713569166483: Airplane [p1] request departing from Airport [LAX]
+3902.6033568338107:Airplane [p4] lands at Airport [ATL]
+3911.1106875702685: Airplane [p2] arrived at Airport [SEA]
+3918.4713569166483: Airplane [p1] has left Airport [LAX] for Airport [SFO], total flying time 65.84112457334147
+3926.1106875702685:Airplane [p2] lands at Airport [SEA]
+3937.6033568338107: Airplane [p4] request departing from Airport [ATL]
+3945.4386250313487: Airplane [p8] arrived at Airport [JFK]
+3950.793056000828: Airplane [p9] arrived at Airport [SEA]
+3951.1106875702685: Airplane [p2] request departing from Airport [SEA]
+3957.6033568338107: Airplane [p4] has left Airport [ATL] for Airport [LAX], total flying time 421.45302043279685
+3965.793056000828:Airplane [p9] lands at Airport [SEA]
+3970.4386250313487:Airplane [p8] lands at Airport [JFK]
+3980.793056000828: Airplane [p2] has left Airport [SEA] for Airport [SFO], total flying time 111.91736431401856
+3984.3124814899898: Airplane [p1] arrived at Airport [SFO]
+3990.793056000828: Airplane [p9] request departing from Airport [SEA]
+3999.3124814899898:Airplane [p1] lands at Airport [SFO]
+4005.793056000828: Airplane [p9] has left Airport [SEA] for Airport [LAX], total flying time 159.2652554186764
+4015.4386250313487: Airplane [p8] request departing from Airport [JFK]
+4029.3124814899898: Airplane [p1] request departing from Airport [SFO]
+4040.4386250313487: Airplane [p8] has left Airport [JFK] for Airport [ATL], total flying time 144.34174357170355
+4044.3124814899898: Airplane [p1] has left Airport [SFO] for Airport [LAX], total flying time 65.84112457334147
+4080.9336447111955: Airplane [p7] arrived at Airport [SEA]
+4092.7104203148465: Airplane [p2] arrived at Airport [SFO]
+4095.9336447111955:Airplane [p7] lands at Airport [SEA]
+4107.7104203148465:Airplane [p2] lands at Airport [SFO]
+4110.153606063332: Airplane [p1] arrived at Airport [LAX]
+4120.9336447111955: Airplane [p7] request departing from Airport [SEA]
+4130.153606063332:Airplane [p1] lands at Airport [LAX]
+4135.9336447111955: Airplane [p7] has left Airport [SEA] for Airport [SFO], total flying time 150.76684020233304
+4137.7104203148465: Airplane [p2] request departing from Airport [SFO]
+4152.7104203148465: Airplane [p2] has left Airport [SFO] for Airport [SEA], total flying time 111.91736431401856
+4161.952500427751: Airplane [p0] arrived at Airport [SFO]
+4164.338234642496: Airplane [p6] arrived at Airport [LAX]
+4165.058311419504: Airplane [p9] arrived at Airport [LAX]
+4170.153606063332: Airplane [p1] request departing from Airport [LAX]
+4176.952500427751:Airplane [p0] lands at Airport [SFO]
+4184.338234642496:Airplane [p6] lands at Airport [LAX]
+4184.780368603052: Airplane [p8] arrived at Airport [ATL]
+4204.338234642496:Airplane [p9] lands at Airport [LAX]
+4204.780368603052:Airplane [p8] lands at Airport [ATL]
+4206.952500427751: Airplane [p0] request departing from Airport [SFO]
+4221.952500427751: Airplane [p0] has left Airport [SFO] for Airport [LAX], total flying time 71.94559969934664
+4224.338234642496: Airplane [p1] has left Airport [LAX] for Airport [ATL], total flying time 378.8820082678679
+4224.338234642496: Airplane [p6] request departing from Airport [LAX]
+4239.780368603052: Airplane [p8] request departing from Airport [ATL]
+4244.338234642496: Airplane [p9] request departing from Airport [LAX]
+4244.338234642496: Airplane [p6] has left Airport [LAX] for Airport [SEA], total flying time 187.8097411148954
+4259.780368603052: Airplane [p8] has left Airport [ATL] for Airport [SFO], total flying time 405.67536390785546
+4264.338234642496: Airplane [p9] has left Airport [LAX] for Airport [SEA], total flying time 159.2652554186764
+4264.627784628865: Airplane [p2] arrived at Airport [SEA]
+4279.627784628865:Airplane [p2] lands at Airport [SEA]
+4286.700484913528: Airplane [p7] arrived at Airport [SFO]
+4293.898100127098: Airplane [p0] arrived at Airport [LAX]
+4294.580894615758: Airplane [p5] arrived at Airport [SEA]
+4301.700484913528:Airplane [p7] lands at Airport [SFO]
+4304.627784628865: Airplane [p2] request departing from Airport [SEA]
+4309.580894615758:Airplane [p5] lands at Airport [SEA]
+4313.898100127098:Airplane [p0] lands at Airport [LAX]
+4324.580894615758: Airplane [p2] has left Airport [SEA] for Airport [JFK], total flying time 397.9492736195265
+4331.700484913528: Airplane [p7] request departing from Airport [SFO]
+4334.580894615758: Airplane [p5] request departing from Airport [SEA]
+4339.420521479232: Airplane [p3] arrived at Airport [JFK]
+4346.700484913528: Airplane [p7] has left Airport [SFO] for Airport [SEA], total flying time 150.76684020233304
+4349.580894615758: Airplane [p5] has left Airport [SEA] for Airport [ATL], total flying time 437.2112833797687
+4353.898100127098: Airplane [p0] request departing from Airport [LAX]
+4364.420521479232:Airplane [p3] lands at Airport [JFK]
+4373.898100127098: Airplane [p0] has left Airport [LAX] for Airport [ATL], total flying time 414.0101414847563
+4379.056377266607: Airplane [p4] arrived at Airport [LAX]
+4399.056377266607:Airplane [p4] lands at Airport [LAX]
+4409.420521479232: Airplane [p3] request departing from Airport [JFK]
+4423.603490061172: Airplane [p9] arrived at Airport [SEA]
+4432.147975757392: Airplane [p6] arrived at Airport [SEA]
+4434.420521479232: Airplane [p3] has left Airport [JFK] for Airport [SFO], total flying time 523.3344022362872
+4438.603490061172:Airplane [p9] lands at Airport [SEA]
+4439.056377266607: Airplane [p4] request departing from Airport [LAX]
+4453.603490061172:Airplane [p6] lands at Airport [SEA]
+4459.056377266607: Airplane [p4] has left Airport [LAX] for Airport [ATL], total flying time 421.45302043279685
+4463.603490061172: Airplane [p9] request departing from Airport [SEA]
+4478.603490061172: Airplane [p6] request departing from Airport [SEA]
+4478.603490061172: Airplane [p9] has left Airport [SEA] for Airport [ATL], total flying time 363.21006443120683
+4493.603490061172: Airplane [p6] has left Airport [SEA] for Airport [SFO], total flying time 133.57143683913415
+4497.467325115861: Airplane [p7] arrived at Airport [SEA]
+4512.467325115861:Airplane [p7] lands at Airport [SEA]
+4537.467325115861: Airplane [p7] request departing from Airport [SEA]
+4552.467325115861: Airplane [p7] has left Airport [SEA] for Airport [SFO], total flying time 150.76684020233304
+4603.220242910364: Airplane [p1] arrived at Airport [ATL]
+4623.220242910364:Airplane [p1] lands at Airport [ATL]
+4627.174926900307: Airplane [p6] arrived at Airport [SFO]
+4642.174926900307:Airplane [p6] lands at Airport [SFO]
+4658.220242910364: Airplane [p1] request departing from Airport [ATL]
+4665.455732510907: Airplane [p8] arrived at Airport [SFO]
+4672.174926900307: Airplane [p6] request departing from Airport [SFO]
+4678.220242910364: Airplane [p1] has left Airport [ATL] for Airport [SFO], total flying time 416.3294643741224
+4680.455732510907:Airplane [p8] lands at Airport [SFO]
+4695.455732510907: Airplane [p6] has left Airport [SFO] for Airport [SEA], total flying time 133.57143683913415
+4703.234165318194: Airplane [p7] arrived at Airport [SFO]
+4710.455732510907: Airplane [p8] request departing from Airport [SFO]
+4718.234165318194:Airplane [p7] lands at Airport [SFO]
+4722.530168235284: Airplane [p2] arrived at Airport [JFK]
+4733.234165318194: Airplane [p8] has left Airport [SFO] for Airport [JFK], total flying time 490.36845563872583
+4747.530168235284:Airplane [p2] lands at Airport [JFK]
+4748.234165318194: Airplane [p7] request departing from Airport [SFO]
+4763.234165318194: Airplane [p7] has left Airport [SFO] for Airport [JFK], total flying time 572.6601734815465
+4786.792177995527: Airplane [p5] arrived at Airport [ATL]
+4787.908241611854: Airplane [p0] arrived at Airport [ATL]
+4792.530168235284: Airplane [p2] request departing from Airport [JFK]
+4806.792177995527:Airplane [p5] lands at Airport [ATL]
+4817.530168235284: Airplane [p2] has left Airport [JFK] for Airport [SFO], total flying time 425.09756905200123
+4826.792177995527:Airplane [p0] lands at Airport [ATL]
+4829.027169350042: Airplane [p6] arrived at Airport [SEA]
+4841.792177995527: Airplane [p5] request departing from Airport [ATL]
+4841.813554492379: Airplane [p9] arrived at Airport [ATL]
+4844.027169350042:Airplane [p6] lands at Airport [SEA]
+4861.792177995527: Airplane [p0] request departing from Airport [ATL]
+4861.792177995527: Airplane [p5] has left Airport [ATL] for Airport [SFO], total flying time 428.4471618818931
+4869.027169350042: Airplane [p6] request departing from Airport [SEA]
+4880.509397699404: Airplane [p4] arrived at Airport [ATL]
+4881.792177995527:Airplane [p9] lands at Airport [ATL]
+4884.027169350042: Airplane [p6] has left Airport [SEA] for Airport [JFK], total flying time 474.94556892269355
+4901.792177995527:Airplane [p4] lands at Airport [ATL]
+4916.792177995527: Airplane [p9] request departing from Airport [ATL]
+4921.792177995527: Airplane [p0] has left Airport [ATL] for Airport [JFK], total flying time 161.8666793254424
+4936.792177995527: Airplane [p4] request departing from Airport [ATL]
+4941.792177995527: Airplane [p9] has left Airport [ATL] for Airport [JFK], total flying time 126.64180610436168
+4957.754923715519: Airplane [p3] arrived at Airport [SFO]
+4961.792177995527: Airplane [p4] has left Airport [ATL] for Airport [SEA], total flying time 472.581184956559
+4972.754923715519:Airplane [p3] lands at Airport [SFO]
+5002.754923715519: Airplane [p3] request departing from Airport [SFO]
+5017.754923715519: Airplane [p3] has left Airport [SFO] for Airport [JFK], total flying time 523.3344022362872
+5068.433984099888: Airplane [p9] arrived at Airport [JFK]
+5083.658857320969: Airplane [p0] arrived at Airport [JFK]
+5093.433984099888:Airplane [p9] lands at Airport [JFK]
+5094.549707284486: Airplane [p1] arrived at Airport [SFO]
+5109.549707284486:Airplane [p1] lands at Airport [SFO]
+5118.433984099888:Airplane [p0] lands at Airport [JFK]
+5138.433984099888: Airplane [p9] request departing from Airport [JFK]
+5139.549707284486: Airplane [p1] request departing from Airport [SFO]
+5154.549707284486: Airplane [p1] has left Airport [SFO] for Airport [ATL], total flying time 416.3294643741224
+5163.433984099888: Airplane [p0] request departing from Airport [JFK]
+5163.433984099888: Airplane [p9] has left Airport [JFK] for Airport [ATL], total flying time 126.64180610436168
+5188.433984099888: Airplane [p0] has left Airport [JFK] for Airport [SEA], total flying time 514.7864775740453
+5223.60262095692: Airplane [p8] arrived at Airport [JFK]
+5242.627737287285: Airplane [p2] arrived at Airport [SFO]
+5248.60262095692:Airplane [p8] lands at Airport [JFK]
+5257.627737287285:Airplane [p2] lands at Airport [SFO]
+5287.627737287285: Airplane [p2] request departing from Airport [SFO]
+5290.07579020425: Airplane [p9] arrived at Airport [ATL]
+5290.23933987742: Airplane [p5] arrived at Airport [SFO]
+5293.60262095692: Airplane [p8] request departing from Airport [JFK]
+5302.627737287285: Airplane [p2] has left Airport [SFO] for Airport [SEA], total flying time 111.91736431401856
+5310.07579020425:Airplane [p9] lands at Airport [ATL]
+5317.627737287285:Airplane [p5] lands at Airport [SFO]
+5318.60262095692: Airplane [p8] has left Airport [JFK] for Airport [SFO], total flying time 490.36845563872583
+5335.894338799741: Airplane [p7] arrived at Airport [JFK]
+5345.07579020425: Airplane [p9] request departing from Airport [ATL]
+5347.627737287285: Airplane [p5] request departing from Airport [SFO]
+5358.972738272735: Airplane [p6] arrived at Airport [JFK]
+5360.894338799741:Airplane [p7] lands at Airport [JFK]
+5362.627737287285: Airplane [p5] has left Airport [SFO] for Airport [JFK], total flying time 517.8943356849745
+5365.07579020425: Airplane [p9] has left Airport [ATL] for Airport [SEA], total flying time 363.21006443120683
+5385.894338799741:Airplane [p6] lands at Airport [JFK]
+5405.894338799741: Airplane [p7] request departing from Airport [JFK]
+5414.545101601303: Airplane [p2] arrived at Airport [SEA]
+5429.545101601303:Airplane [p2] lands at Airport [SEA]
+5430.894338799741: Airplane [p6] request departing from Airport [JFK]
+5430.894338799741: Airplane [p7] has left Airport [JFK] for Airport [ATL], total flying time 168.56461088373658
+5434.373362952086: Airplane [p4] arrived at Airport [SEA]
+5449.373362952086:Airplane [p4] lands at Airport [SEA]
+5454.545101601303: Airplane [p2] request departing from Airport [SEA]
+5455.894338799741: Airplane [p6] has left Airport [JFK] for Airport [SEA], total flying time 474.94556892269355
+5469.545101601303: Airplane [p2] has left Airport [SEA] for Airport [SFO], total flying time 111.91736431401856
+5474.373362952086: Airplane [p4] request departing from Airport [SEA]
+5489.373362952086: Airplane [p4] has left Airport [SEA] for Airport [LAX], total flying time 207.22378176946884
+5541.089325951806: Airplane [p3] arrived at Airport [JFK]
+5566.089325951806:Airplane [p3] lands at Airport [JFK]
+5570.879171658609: Airplane [p1] arrived at Airport [ATL]
+5581.462465915321: Airplane [p2] arrived at Airport [SFO]
+5590.879171658609:Airplane [p1] lands at Airport [ATL]
+5596.462465915321:Airplane [p2] lands at Airport [SFO]
+5599.458949683477: Airplane [p7] arrived at Airport [ATL]
+5611.089325951806: Airplane [p3] request departing from Airport [JFK]
+5619.458949683477:Airplane [p7] lands at Airport [ATL]
+5625.879171658609: Airplane [p1] request departing from Airport [ATL]
+5626.462465915321: Airplane [p2] request departing from Airport [SFO]
+5636.089325951806: Airplane [p3] has left Airport [JFK] for Airport [SEA], total flying time 489.9123410526104
+5641.462465915321: Airplane [p2] has left Airport [SFO] for Airport [LAX], total flying time 55.616649596935204
+5645.879171658609: Airplane [p1] has left Airport [ATL] for Airport [LAX], total flying time 378.8820082678679
+5654.458949683477: Airplane [p7] request departing from Airport [ATL]
+5674.458949683477: Airplane [p7] has left Airport [ATL] for Airport [SFO], total flying time 473.7542180808979
+5696.597144721554: Airplane [p4] arrived at Airport [LAX]
+5697.079115512257: Airplane [p2] arrived at Airport [LAX]
+5703.220461673934: Airplane [p0] arrived at Airport [SEA]
+5716.597144721554:Airplane [p4] lands at Airport [LAX]
+5718.220461673934:Airplane [p0] lands at Airport [SEA]
+5728.285854635456: Airplane [p9] arrived at Airport [SEA]
+5736.597144721554:Airplane [p2] lands at Airport [LAX]
+5743.220461673934: Airplane [p0] request departing from Airport [SEA]
+5743.285854635456:Airplane [p9] lands at Airport [SEA]
+5756.597144721554: Airplane [p4] request departing from Airport [LAX]
+5758.285854635456: Airplane [p0] has left Airport [SEA] for Airport [JFK], total flying time 514.7864775740453
+5768.285854635456: Airplane [p9] request departing from Airport [SEA]
+5776.597144721554: Airplane [p2] request departing from Airport [LAX]
+5776.597144721554: Airplane [p4] has left Airport [LAX] for Airport [ATL], total flying time 421.45302043279685
+5783.285854635456: Airplane [p9] has left Airport [SEA] for Airport [SFO], total flying time 113.27042398620877
+5796.597144721554: Airplane [p2] has left Airport [LAX] for Airport [ATL], total flying time 320.045382410571
+5808.971076595646: Airplane [p8] arrived at Airport [SFO]
+5823.971076595646:Airplane [p8] lands at Airport [SFO]
+5853.971076595646: Airplane [p8] request departing from Airport [SFO]
+5868.971076595646: Airplane [p8] has left Airport [SFO] for Airport [SEA], total flying time 129.10152655121038
+5880.522072972259: Airplane [p5] arrived at Airport [JFK]
+5896.556278621665: Airplane [p9] arrived at Airport [SFO]
+5905.522072972259:Airplane [p5] lands at Airport [JFK]
+5911.556278621665:Airplane [p9] lands at Airport [SFO]
+5930.839907722434: Airplane [p6] arrived at Airport [SEA]
+5941.556278621665: Airplane [p9] request departing from Airport [SFO]
+5945.839907722434:Airplane [p6] lands at Airport [SEA]
+5950.522072972259: Airplane [p5] request departing from Airport [JFK]
+5956.556278621665: Airplane [p9] has left Airport [SFO] for Airport [LAX], total flying time 56.28904432435929
+5970.839907722434: Airplane [p6] request departing from Airport [SEA]
+5975.522072972259: Airplane [p5] has left Airport [JFK] for Airport [ATL], total flying time 152.4440867659572
+5985.839907722434: Airplane [p6] has left Airport [SEA] for Airport [JFK], total flying time 474.94556892269355
+5998.072603146857: Airplane [p8] arrived at Airport [SEA]
+Simulator stopping at time: 6000.0
+Airport [ATL] - timeToLand = 20.0, timeToTakeOff = 20.0, timeOnGround = 35.0, in traffic = 4527, out traffic = 4515, circling time = 85.52520113771652
+Airport [JFK] - timeToLand = 25.0, timeToTakeOff = 25.0, timeOnGround = 45.0, in traffic = 5457, out traffic = 5208, circling time = 182.17674037992992
+Airport [LAX] - timeToLand = 20.0, timeToTakeOff = 20.0, timeOnGround = 40.0, in traffic = 3827, out traffic = 3933, circling time = 55.14344877258782
+Airport [SFO] - timeToLand = 15.0, timeToTakeOff = 15.0, timeOnGround = 30.0, in traffic = 4815, out traffic = 5183, circling time = 23.76137047374357
+Airport [SEA] - timeToLand = 15.0, timeToTakeOff = 15.0, timeOnGround = 25.0, in traffic = 5344, out traffic = 5328, circling time = 12.36408769821037
