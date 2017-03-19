@@ -2,6 +2,8 @@ import java.nio.DoubleBuffer;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.omg.CORBA.IRObject;
 
@@ -30,6 +32,7 @@ public class Airport implements EventHandler {
     private double coordinate_y;
     
     private Deque<AirportEvent> eventQueue;
+    private static List<Airport> global_airports = new ArrayList<Airport>();
     
     public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, double takeOffTime, double coordinate_X, double coordinate_Y) {
         m_airportName = name;
@@ -46,7 +49,7 @@ public class Airport implements EventHandler {
         total_cycling_time = 0;
         rand = new Random();
         eventQueue = new ArrayDeque<>();
-        
+        global_airports.add(this);
     }
 
     public String getName() {
@@ -64,8 +67,22 @@ public class Airport implements EventHandler {
     public double getTotalCirclingTime() {
     	return total_cycling_time;
     }
+    
     public double calculate_distance(Airport airport) {
     	return Math.sqrt(Math.pow(coordinate_x - airport.coordinate_x, 2) + Math.pow(coordinate_y - airport.coordinate_y, 2));
+    }
+    
+    public Airport nextDestination() {
+        while(true) {
+            int idx = rand.nextInt(global_airports.size());
+            if(global_airports.get(idx) != this) {
+                return global_airports.get(idx);
+            }
+        }
+    }
+    
+    public static List<Airport> get_global_airports() {
+        return global_airports;
     }
 
     public void handle(Event event) {
@@ -73,10 +90,12 @@ public class Airport implements EventHandler {
         Airplane airplane = airEvent.checkFlight();
         switch(airEvent.getType()) {
             case AirportEvent.PLANE_ARRIVES:
-                m_inTheAir++;     
+                m_inTheAir++;
+                
+                //add a record in the airplane
                 String trace1 = String.format("%.2f: arrived at %s", Simulator.getCurrentTime(), this.getName());
                 airplane.addTrace(trace1);
-//                System.out.println(trace1);
+                
                 if(runwayFree) {
                 	runwayFree = false;
                 	AirportEvent landedEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, airplane);
@@ -90,22 +109,24 @@ public class Airport implements EventHandler {
             case AirportEvent.PLANE_LANDED:
                 m_inTheAir--;
             	passengersIn += airplane.getPassengerNo();
+                
+                //add a record in the airplane
             	String trace2 = String.format("%.2f: landed at %s", Simulator.getCurrentTime(), this.getName());
             	airplane.addTrace(trace2);
-//                System.out.println(trace2);
-                if(airplane.hasNextDest()) {
-                	AirportEvent takeOffEvent = new AirportEvent(m_requiredTimeOnGround, this, AirportEvent.PLANE_TAKEOFF, airplane);
-                    Simulator.schedule(takeOffEvent);
-                }               
+                
+                AirportEvent takeOffEvent = new AirportEvent(m_requiredTimeOnGround, this, AirportEvent.PLANE_TAKEOFF, airplane);
+                Simulator.schedule(takeOffEvent);
+                
                 if(!eventQueue.isEmpty())
                 {
                 	AirportEvent ae = eventQueue.poll();
                 	total_cycling_time += Simulator.getCurrentTime() - ae.getTime();
-//                	System.out.println(Simulator.getCurrentTime() - ae.getTime());
+                    
                 	if(ae.getType() == AirportEvent.PLANE_ARRIVES) {
                 		AirportEvent landingEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, ae.checkFlight());
                         Simulator.schedule(landingEvent);
                 	}
+                    
                 	else {
             			AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
                         Simulator.schedule(departEvent);
@@ -119,10 +140,15 @@ public class Airport implements EventHandler {
                 
             case AirportEvent.PLANE_TAKEOFF:
             	m_onTheGround++;
+                //set airplane passenger number
             	airplane.setPassenger(rand.nextInt(airplane.getCapacity()));
+                
+                //add a record in airplane
             	String trace3 = String.format("%.2f: is ready to go with %d passengers", Simulator.getCurrentTime(), airplane.getPassengerNo());
             	airplane.addTrace(trace3);
 //            	System.out.println(trace3);
+                
+                
             	if(runwayFree) {
             		runwayFree = false;
             		AirportEvent departureEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, airplane);
@@ -137,15 +163,22 @@ public class Airport implements EventHandler {
             case AirportEvent.PLANE_DEPARTS:
             	m_onTheGround--;
             	passengersOut += airplane.getPassengerNo();
-//            	System.out.println(trace4);
-            	Airport destination = airplane.nextDestination();
+                
+                //get a destination
+            	Airport destination = this.nextDestination();
+                
+                //calculate flight time
             	double speed = airplane.getSpeed();
             	double distance = calculate_distance(destination);
             	double flightTime = distance / speed;
+                
+                //add a record in airplane
             	String trace4 = String.format("%.2f: departs from %s to %s", Simulator.getCurrentTime(), this.getName(), destination.getName());
             	airplane.addTrace(trace4);
+                
             	AirportEvent arrivalEvent = new AirportEvent(flightTime, destination, AirportEvent.PLANE_ARRIVES, airplane);
             	Simulator.schedule(arrivalEvent);
+                
             	if(!eventQueue.isEmpty())
                 {    
             		AirportEvent ae = eventQueue.poll();

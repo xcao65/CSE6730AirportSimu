@@ -9,7 +9,6 @@ public class Airplane {
     private int passengerCapacity;
     private int m_numberPassengers;
     private double m_speed;
-    private Deque<Airport> destinations;
     private List<String> trace;
 
     public Airplane(String name, double speed, int num) {
@@ -17,7 +16,6 @@ public class Airplane {
         m_speed = speed;
         passengerCapacity = num;
         m_numberPassengers = new Random().nextInt(passengerCapacity);
-        destinations = new ArrayDeque<>();
         trace = new ArrayList<>();
     }
 
@@ -47,18 +45,6 @@ public class Airplane {
     
     public void setPassenger(int num) {
     	m_numberPassengers = num;
-    }
-    
-    public void addDestination(Airport airport) {
-    	destinations.add(airport);
-    }
-    
-    public Airport nextDestination() {
-    	return destinations.poll();
-    }
-    
-    public boolean hasNextDest() {
-    	return !destinations.isEmpty();
     }
     
     public void addTrace(String s) {
