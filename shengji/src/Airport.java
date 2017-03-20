@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import org.omg.CORBA.IRObject;
 
 //YOUR NAME HERE
@@ -16,7 +16,7 @@ public class Airport implements EventHandler {
     private int m_inTheAir;
     private int m_onTheGround;
 
-    private boolean runwayFree;
+    private boolean[] runwayFree;
 
 
     private double m_runwayTimeToLand;
@@ -34,11 +34,11 @@ public class Airport implements EventHandler {
     private Deque<AirportEvent> eventQueue;
     private static List<Airport> global_airports = new ArrayList<Airport>();
     
-    public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, double takeOffTime, double coordinate_X, double coordinate_Y) {
+    
+    public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
         m_airportName = name;
         m_inTheAir =  0;
         m_onTheGround = 0;
-        runwayFree = true;
         m_runwayTimeToLand = runwayTimeToLand;
         m_requiredTimeOnGround = requiredTimeOnGround;
         m_takeOffTime = takeOffTime;
@@ -50,6 +50,8 @@ public class Airport implements EventHandler {
         rand = new Random();
         eventQueue = new ArrayDeque<>();
         global_airports.add(this);
+        runwayFree = new boolean[number_of_runway];
+        Arrays.fill(runwayFree, true);
     }
 
     public String getName() {
@@ -95,21 +97,25 @@ public class Airport implements EventHandler {
                 //add a record in the airplane
                 String trace1 = String.format("%.2f: arrived at %s", Simulator.getCurrentTime(), this.getName());
                 airplane.addTrace(trace1);
-                
-                if(runwayFree) {
-                	runwayFree = false;
-                	AirportEvent landedEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, airplane);
-                    Simulator.schedule(landedEvent);
-                } else{
-                	eventQueue.add(airEvent);
+                int i = 0;
+                for(i = 0; i < runwayFree.length; i++) {
+                    if(runwayFree[i]) {
+                        runwayFree[i] = false;
+                        AirportEvent landedEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, airplane);
+                        landedEvent.setRunWay(i);
+                        Simulator.schedule(landedEvent);
+                        break;
+                    }
                 }
+                if(i == runwayFree.length) eventQueue.add(airEvent);
+                
                 break;
 
 
             case AirportEvent.PLANE_LANDED:
                 m_inTheAir--;
             	passengersIn += airplane.getPassengerNo();
-                
+                int local_runway = airEvent.getRunWay();
                 //add a record in the airplane
             	String trace2 = String.format("%.2f: landed at %s", Simulator.getCurrentTime(), this.getName());
             	airplane.addTrace(trace2);
@@ -124,17 +130,19 @@ public class Airport implements EventHandler {
                     
                 	if(ae.getType() == AirportEvent.PLANE_ARRIVES) {
                 		AirportEvent landingEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, ae.checkFlight());
+                        landingEvent.setRunWay(local_runway);
                         Simulator.schedule(landingEvent);
                 	}
                     
                 	else {
             			AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
+                        departEvent.setRunWay(local_runway);
                         Simulator.schedule(departEvent);
             		}	                   
                 }
                 else
                 {
-                    runwayFree = true;
+                    runwayFree[local_runway] = true;
                 }
                 break;
                 
@@ -148,22 +156,24 @@ public class Airport implements EventHandler {
             	airplane.addTrace(trace3);
 //            	System.out.println(trace3);
                 
-                
-            	if(runwayFree) {
-            		runwayFree = false;
-            		AirportEvent departureEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, airplane);
-            		Simulator.schedule(departureEvent);
-            	}
-            	else {
-            		eventQueue.add(airEvent);
-            	}
+                for(i  = 0; i < runwayFree.length; i++) {
+                    if(runwayFree[i]) {
+                        runwayFree[i] = false;
+                        AirportEvent departureEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, airplane);
+                        departureEvent.setRunWay(i);
+                        Simulator.schedule(departureEvent);
+                        break;
+                    }
+                }
+                if(i == runwayFree.length) eventQueue.add(airEvent);
             	break;
             	
             	
             case AirportEvent.PLANE_DEPARTS:
             	m_onTheGround--;
             	passengersOut += airplane.getPassengerNo();
-                
+                local_runway = airEvent.getRunWay();
+
                 //get a destination
             	Airport destination = this.nextDestination();
                 
@@ -184,16 +194,18 @@ public class Airport implements EventHandler {
             		AirportEvent ae = eventQueue.poll();
             		if(ae.getType() == AirportEvent.PLANE_ARRIVES) {
                 		AirportEvent landingEvent = new AirportEvent(m_runwayTimeToLand, this, AirportEvent.PLANE_LANDED, ae.checkFlight());
+                        landingEvent.setRunWay(local_runway);
                         Simulator.schedule(landingEvent);
                 	}
             		else {
             			AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
+                        departEvent.setRunWay(local_runway);
                         Simulator.schedule(departEvent);
             		}	
                 }
                 else
                 {
-                    runwayFree = true;
+                    runwayFree[local_runway] = true;
                 }
                 break;
         }
