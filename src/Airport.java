@@ -32,10 +32,16 @@ public class Airport implements EventHandler {
     private double coordinate_y;
     
     private Deque<AirportEvent> eventQueue;
+    
+    //list of airports shared by every airport
     private static List<Airport> global_airports = new ArrayList<Airport>();
     
+    //initiate number of planes on the airway between each pair of airport
+    //Should be a variable
+    private static int[][] m_airwayNumber = new int[7][7];  
     
-    public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
+    public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, 
+        double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
         m_airportName = name;
         m_inTheAir =  0;
         m_onTheGround = 0;
@@ -52,6 +58,8 @@ public class Airport implements EventHandler {
         global_airports.add(this);
         runwayFree = new boolean[number_of_runway];
         Arrays.fill(runwayFree, true);
+
+
     }
 
     public String getName() {
@@ -74,6 +82,7 @@ public class Airport implements EventHandler {
     	return Math.sqrt(Math.pow(coordinate_x - airport.coordinate_x, 2) + Math.pow(coordinate_y - airport.coordinate_y, 2));
     }
     
+    //get destination
     public Airport nextDestination() {
         while(true) {
             int idx = rand.nextInt(global_airports.size());
@@ -88,9 +97,13 @@ public class Airport implements EventHandler {
     }
 
     public void handle(Event event) {
+
         AirportEvent airEvent = (AirportEvent)event;
         Airplane airplane = airEvent.checkFlight();
+
+
         switch(airEvent.getType()) {
+
             case AirportEvent.PLANE_ARRIVES:
                 m_inTheAir++;
                 
@@ -154,8 +167,8 @@ public class Airport implements EventHandler {
                 //add a record in airplane
             	String trace3 = String.format("%.2f: is ready to go with %d passengers", Simulator.getCurrentTime(), airplane.getPassengerNo());
             	airplane.addTrace(trace3);
-//            	System.out.println(trace3);
-                
+                //System.out.println(trace3);
+
                 for(i  = 0; i < runwayFree.length; i++) {
                     if(runwayFree[i]) {
                         runwayFree[i] = false;
