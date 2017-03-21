@@ -18,6 +18,12 @@ public class Airport implements EventHandler {
 
     private boolean[] runwayFree;
 
+    //initiate index to store start and destination airport
+    private int startAirport;
+    private int destination;
+
+    //initialize airway capacity same for all airways
+    private int airwayCapacity = 10;
 
     private double m_runwayTimeToLand;
     private double m_requiredTimeOnGround;
@@ -36,9 +42,13 @@ public class Airport implements EventHandler {
     //list of airports(static type) shared by every airport
     private static List<Airport> global_airports = new ArrayList<Airport>();
     
-    //initiate number of planes on the airway between each pair of airport, by default 0
-    private static int numberofAirports = AirportSim.getNumberofAirports();
-    private static int[][] m_airwayNumber = new int[numberofAirports][numberofAirports];
+    //initiate matrix to store number of planes on the airway between each pair of airport, by default 0
+    private static int number_of_airports = AirportSim.getNumberofAirports();
+    private static int[][] m_airwayNumber = new int[number_of_airports][number_of_airports];
+
+    public static void setAirwayNumber(int start, int destination) {
+        m_airwayNumber[start][destination]++;
+    }
     
     public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, 
         double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
@@ -84,32 +94,17 @@ public class Airport implements EventHandler {
     	return Math.sqrt(Math.pow(coordinate_x - airport.coordinate_x, 2) + Math.pow(coordinate_y - airport.coordinate_y, 2));
     }
 
-    //get depature airport index
-    public int getFromIndex() {
-        
-    }
-
     //get destination airport index
-    public int getToIndex() {
+    public int getDestinationIndex() {
         while(true) {
             int idx = rand.nextInt(global_airports.size());
             if(global_airports.get(idx) != this) {
-                return global_airports.get(idx);
+                return idx;
             }
         }
     }
-    
-    //get destination airport
-    public Airport nextDestination() {
-        while(true) {
-            int idx = rand.nextInt(global_airports.size());
-            if(global_airports.get(idx) != this) {
-                return global_airports.get(idx);
-            }
-        }
-    }
-    
-    //getter method for airport list
+        
+    //get method for airport list
     public static List<Airport> get_global_airports() {
         return global_airports;
     }
@@ -119,12 +114,22 @@ public class Airport implements EventHandler {
         AirportEvent airEvent = (AirportEvent)event;
         Airplane airplane = airEvent.checkFlight();
 
-
         switch(airEvent.getType()) {
 
             case AirportEvent.PLANE_ARRIVES:
                 m_inTheAir++;
-                
+
+                //decrease airway by 1
+                startAirport = airplane.getStartAirport();
+                destination = airplane.getDestination();
+                m_airwayNumber[startAirport][destination]--;
+
+                //set new start airport and destination
+                startAirport = (global_airports.indexOf(this));
+                destination = getDestinationIndex();
+                airplane.setStartAirport(startAirport);
+                airplane.setDestination(destination);
+
                 //add a record in the airplane
                 String trace1 = String.format("%.2f: arrived at %s", Simulator.getCurrentTime(), this.getName());
                 airplane.addTrace(trace1);
@@ -180,24 +185,38 @@ public class Airport implements EventHandler {
                 
             case AirportEvent.PLANE_TAKEOFF:
             	m_onTheGround++;
+
                 //set airplane passenger number
             	airplane.setPassenger(rand.nextInt(airplane.getCapacity()));
                 
                 //add a record in airplane
             	String trace3 = String.format("%.2f: is ready to go with %d passengers", Simulator.getCurrentTime(), airplane.getPassengerNo());
             	airplane.addTrace(trace3);
-                //System.out.println(trace3);
 
-                for(i  = 0; i < runwayFree.length; i++) {
-                    if(runwayFree[i]) {
-                        runwayFree[i] = false;
-                        AirportEvent departureEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, airplane);
-                        departureEvent.setRunWay(i);
-                        Simulator.schedule(departureEvent);
-                        break;
+                //test if the airway is full
+                startAirport = airplane.getStartAirport();
+                destination = airplane.getDestination();
+                if(m_airwayNumber[startAirport][destination] < airwayCapacity) {
+
+                    for(i = 0; i < runwayFree.length; i++) {
+                        if(runwayFree[i]) {
+                            runwayFree[i] = false;
+                            AirportEvent departureEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, airplane);
+                            
+                            //mark the runway index to set free later
+                            departureEvent.setRunWay(i);
+                            Simulator.schedule(departureEvent);
+                            break;
+                        }
                     }
+                    //if runway is false, delay the plane takeoff event
+                    if(i == runwayFree.length) eventQueue.add(airEvent);
+
+                } else {
+                    //if airway is full, delay the plane takeoff event
+                    eventQueue.add(airEvent);
                 }
-                if(i == runwayFree.length) eventQueue.add(airEvent);
+
             	break;
             	
             	
@@ -206,19 +225,24 @@ public class Airport implements EventHandler {
             	passengersOut += airplane.getPassengerNo();
                 local_runway = airEvent.getRunWay();
 
-                //get a destination
-            	Airport destination = this.nextDestination();
+                //get the destination which is stored in airplane object, reassigned during arrival event
+                destination = airplane.getDestination();
+            	Airport destinationAirport = global_airports.get(destination);
+
+                //increase corresponding airway matrix number
+                startAirport = airplane.getStartAirport();
+                m_airwayNumber[startAirport][destination]++;
                 
                 //calculate flight time
             	double speed = airplane.getSpeed();
-            	double distance = calculate_distance(destination);
+            	double distance = calculate_distance(destinationAirport);
             	double flightTime = distance / speed;
                 
                 //add a record in airplane
-            	String trace4 = String.format("%.2f: departs from %s to %s", Simulator.getCurrentTime(), this.getName(), destination.getName());
+            	String trace4 = String.format("%.2f: departs from %s to %s", Simulator.getCurrentTime(), this.getName(), destinationAirport.getName());
             	airplane.addTrace(trace4);
                 
-            	AirportEvent arrivalEvent = new AirportEvent(flightTime, destination, AirportEvent.PLANE_ARRIVES, airplane);
+            	AirportEvent arrivalEvent = new AirportEvent(flightTime, destinationAirport, AirportEvent.PLANE_ARRIVES, airplane);
             	Simulator.schedule(arrivalEvent);
                 
             	if(!eventQueue.isEmpty())

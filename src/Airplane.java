@@ -10,6 +10,8 @@ public class Airplane {
     private int m_numberPassengers;
     private double m_speed;
     private List<String> trace;
+    private int startAirport;
+    private int destination;
 
     public Airplane(String name, double speed, int num) {
         m_name = name;
@@ -50,7 +52,24 @@ public class Airplane {
     public void addTrace(String s) {
     	trace.add(s);
     }
-    
+
+    //setter and getter method for start and destination airport
+    public void setStartAirport(int index) {
+        startAirport = index;
+    }
+
+    public void setDestination(int index) {
+        destination = index;
+    }
+
+    public int getStartAirport() {
+        return startAirport;
+    }
+
+    public int getDestination() {
+        return destination;
+    }
+
     public void printTrace() {
     	System.out.println("--------------------------------------------------");
     	System.out.println(this.getName());
