@@ -31,11 +31,8 @@ public class AirportSim {
 
             List<Airplane> airplanes = new ArrayList<>();
             
-
-
             //instantiate several airports(airport_name, runwayTimeToLand, requiredTimeOnGround, 
             //takeOffTime, X, Y coordinates, number_of_runways)
-
             String locationName;
             Airport airport;
             for (int i=0; i<m_numberofAirports; ++i) {
