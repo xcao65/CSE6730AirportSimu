@@ -37,8 +37,8 @@ public class Airport implements EventHandler {
     private static List<Airport> global_airports = new ArrayList<Airport>();
     
     //initiate number of planes on the airway between each pair of airport
-    //Should be a variable
-    private static int[][] m_airwayNumber = new int[7][7];  
+    private static int numberofAirports = AirportSim.getNumberofAirports();
+    private static int[][] m_airwayNumber = new int[numberofAirports][numberofAirports];  
     
     public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, 
         double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
@@ -58,8 +58,6 @@ public class Airport implements EventHandler {
         global_airports.add(this);
         runwayFree = new boolean[number_of_runway];
         Arrays.fill(runwayFree, true);
-
-
     }
 
     public String getName() {

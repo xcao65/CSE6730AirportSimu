@@ -11,7 +11,17 @@ import java.util.TreeSet;
 
 
 public class AirportSim {
-    
+
+
+    /*
+    **@input number of airports
+    */
+    private static int m_numberofAirports = 8;     //number of airports
+    //getter method of number of airports
+    public static int getNumberofAirports() {
+        return m_numberofAirports;
+    }
+
     public static void main(String[] args) {
         try{
             System.out.println("how many airplanes do you want, please input a number");
@@ -26,18 +36,13 @@ public class AirportSim {
             //instantiate several airports(airport_name, runwayTimeToLand, requiredTimeOnGround, 
             //takeOffTime, X, Y coordinates, number_of_runways)
 
-            /*
-            **@input number of airports
-            */
-            int m_numberofAirports = 8;     //number of airports
-
             String locationName;
             Airport airport;
             for (int i=0; i<m_numberofAirports; ++i) {
                 locationName = "Location-"+ Integer.toString(i);
                 airport = new Airport(locationName, 10, 10, 10, 34.05+20*i, -118.24+20*i, 8);
             }
-           
+            
             /*
             Airport LAX = new Airport("LAX", 10, 10, 10, 34.05, -118.24, 8);
             Airport ATL  = new Airport("ATL", 8, 8, 8, 33.75, -84.39, 6);
