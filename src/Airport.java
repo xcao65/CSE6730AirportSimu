@@ -33,12 +33,12 @@ public class Airport implements EventHandler {
     
     private Deque<AirportEvent> eventQueue;
     
-    //list of airports shared by every airport
+    //list of airports(static type) shared by every airport
     private static List<Airport> global_airports = new ArrayList<Airport>();
     
-    //initiate number of planes on the airway between each pair of airport
+    //initiate number of planes on the airway between each pair of airport, by default 0
     private static int numberofAirports = AirportSim.getNumberofAirports();
-    private static int[][] m_airwayNumber = new int[numberofAirports][numberofAirports];  
+    private static int[][] m_airwayNumber = new int[numberofAirports][numberofAirports];
     
     public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround, 
         double takeOffTime, double coordinate_X, double coordinate_Y, int number_of_runway) {
@@ -55,7 +55,11 @@ public class Airport implements EventHandler {
         total_cycling_time = 0;
         rand = new Random();
         eventQueue = new ArrayDeque<>();
+
+        //add airport object to the static airport list
         global_airports.add(this);
+        
+        //initiate and initailize a boolean array to store runway status
         runwayFree = new boolean[number_of_runway];
         Arrays.fill(runwayFree, true);
     }
@@ -79,8 +83,23 @@ public class Airport implements EventHandler {
     public double calculate_distance(Airport airport) {
     	return Math.sqrt(Math.pow(coordinate_x - airport.coordinate_x, 2) + Math.pow(coordinate_y - airport.coordinate_y, 2));
     }
+
+    //get depature airport index
+    public int getFromIndex() {
+        
+    }
+
+    //get destination airport index
+    public int getToIndex() {
+        while(true) {
+            int idx = rand.nextInt(global_airports.size());
+            if(global_airports.get(idx) != this) {
+                return global_airports.get(idx);
+            }
+        }
+    }
     
-    //get destination
+    //get destination airport
     public Airport nextDestination() {
         while(true) {
             int idx = rand.nextInt(global_airports.size());
@@ -90,6 +109,7 @@ public class Airport implements EventHandler {
         }
     }
     
+    //getter method for airport list
     public static List<Airport> get_global_airports() {
         return global_airports;
     }
@@ -118,6 +138,7 @@ public class Airport implements EventHandler {
                         break;
                     }
                 }
+
                 if(i == runwayFree.length) eventQueue.add(airEvent);
                 
                 break;
