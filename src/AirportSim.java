@@ -8,17 +8,13 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-
-
 public class AirportSim {
-
-
   /*
   **@input number of airports
   */
   private static int m_numberofAirports;     //number of airports
 
-  private static Random seed = new Random(10); // use as random seed;
+  //private static Random seed = new Random(10); // use as random seed;
 
   //getter method of number of airports
   public static int getNumberofAirports() {
@@ -54,11 +50,11 @@ public class AirportSim {
 
 /**
      * args:
-     *    args[0] - number of airport, default is 10;
+     *    args[0] - number of airport, default is 50;
      *    args[1] - number of runways for each airport, default is 2;
      *    args[2] - number of planes, default is 50;
      *    args[3] - total of minutes for simulation run, default is 2000;
-     *    args[4] - number of airwayCapacity between two airports, default is 0;
+     *    args[4] - number of airwayCapacity between two airports, default is 8;
      *    args[5] - random seed, default is 0.
      *    args[6] - emergency event schedule flag 1 for yes, default is 0;
      *    args[7] - emergency event scheduled airport index, default is 0;
@@ -66,7 +62,8 @@ public class AirportSim {
      *    args[9] - emergency event scheduled duration, default is 600;
      **/
 
-      Random rdg = new Random(args.length < 6 ? 0 : Integer.parseInt(args[5]));
+      int seed = args.length < 6 ? 0 : Integer.parseInt(args[5]);
+      Random rdg = new Random(seed);
 
       List<Airplane> airplanes = new ArrayList<>();
       //initiate several airports(airport_name, runwayTimeToLand, requiredTimeOnGround,
@@ -74,7 +71,7 @@ public class AirportSim {
       String locationName;
       Airport airport;
 
-      setNumberofAirports(args.length < 1 ? 10: Integer.parseInt(args[0]));
+      setNumberofAirports(args.length < 1 ? 50: Integer.parseInt(args[0]));
 
       int runway_flag = args.length < 2 ? 2: Integer.parseInt(args[1]);
       for (int i=0; i < getNumberofAirports(); ++i) {
@@ -116,7 +113,7 @@ public class AirportSim {
         airplane.outputTraceFile();
         airplane.printTrace();
       }
-
+/*
       for(Airport a: Airport.get_global_airports()) {
         a.printPassengerFlow();
         a.printTotalCyclingTime();
@@ -124,6 +121,20 @@ public class AirportSim {
         //System.out.println("" + Double.toString(a.calculate_distance(a.getNeighbor())));
         System.out.println();
       }
+*/
+      //for result analysis
+      double cycling_time_of_all = 0;
+
+      for(Airport a: Airport.get_global_airports()) {
+        a.printPassengerFlow();
+        a.printTotalCyclingTime();
+        //System.out.println("" + " "+ a.getName() + " " + a.getNeighbor().getName());
+        //System.out.println("" + Double.toString(a.calculate_distance(a.getNeighbor())));
+        System.out.println();
+        cycling_time_of_all += a.getTotalCirclingTime();
+      }
+
+      System.out.println("Average total cycling time of every airport: "+cycling_time_of_all/m_numberofAirports);
 
     }catch(Exception e) {
       e.printStackTrace();
