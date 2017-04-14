@@ -36,7 +36,7 @@ public class Airport implements EventHandler {
   private int passengersOut;
   private String m_airportName;
   private double total_cycling_time;
-  private Random rand;
+  private static Random rand;
 
   private double coordinate_x;
   private double coordinate_y;
@@ -78,7 +78,7 @@ public class Airport implements EventHandler {
     passengersIn = 0;
     passengersOut = 0;
     total_cycling_time = 0;
-    rand = new Random();
+    if(rand == null) rand = new Random(0);
     eventQueue = new ArrayDeque<>();
     // add emergency status
     emergency = false;

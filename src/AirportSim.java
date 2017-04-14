@@ -76,7 +76,7 @@ public class AirportSim {
 
       setNumberofAirports(args.length < 1 ? 10: Integer.parseInt(args[0]));
 
-      int runway_flag = args.length < 2 ? 2: Integer.parseInt(args[1]);
+      int runway_flag = args.length < 2 ? 3: Integer.parseInt(args[1]);
       for (int i=0; i < getNumberofAirports(); ++i) {
         locationName = "Location-"+ Integer.toString(i);
         int x = rdg.nextInt(50);
@@ -88,7 +88,7 @@ public class AirportSim {
       Airport.get_nearest_neighbor();
 
       // initialize airplanes list here
-      for(int i = 0; i < (args.length < 3 ? 50: Integer.parseInt(args[2])) ; i++) {
+      for(int i = 0; i < (args.length < 3 ? 1000: Integer.parseInt(args[2])) ; i++) {
         airplanes.add(get_a_plane(rdg));
       }
 

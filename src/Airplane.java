@@ -12,6 +12,7 @@ public class Airplane {
     private List<String> trace;
     private int startAirport;
     private int destination;
+    private static Random rand;
 
     public Airplane(String name, double speed, int num) {
         m_name = name;
@@ -19,7 +20,8 @@ public class Airplane {
         passengerCapacity = num;
         // add range of the number of passengers.
         int base = num/2;
-        m_numberPassengers = new Random().nextInt(num-base); // should change seed here!
+        if(rand == null) rand = new Random(0);
+        m_numberPassengers = rand.nextInt(num-base); // should change seed here!
         m_numberPassengers = base + m_numberPassengers;
         trace = new ArrayList<>();
     }
