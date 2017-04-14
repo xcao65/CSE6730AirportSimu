@@ -78,7 +78,7 @@ public class AirportSim {
         int x = rdg.nextInt(50);
         int y = rdg.nextInt(30);
         airport = new Airport(locationName, 10, 50, 10, 34.05+x*i, -118.24+y*i, runway_flag);
-        airport.setAirwayCap(args.length < 5 ? 10: Integer.parseInt(args[4]));
+        airport.setAirwayCap(args.length < 5 ? 8: Integer.parseInt(args[4]));
       }
 
       Airport.get_nearest_neighbor();
