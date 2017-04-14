@@ -159,7 +159,7 @@ public class AirportSim {
     List<Airport> airportList = Airport.get_global_airports();
     int destinationIdx = rand.nextInt(airportList.size());
     int startIdx = rand.nextInt(airportList.size());
-    while(startIdx != destinationIdx) {
+    while(startIdx == destinationIdx) {
       startIdx = rand.nextInt(airportList.size());
     }
 
