@@ -28,25 +28,6 @@ public class AirportSim {
 
   public static void main(String[] args) {
     try{
-
-/*
-      System.out.println("how many airplanes do you want, please input a number");
-      Scanner in = new Scanner(System.in);
-      int n = in.nextInt();
-      //in.close();
-/*
-      System.out.println("Do you want to schedule emergency events? Yes: 1; No: 0");
-      int emergency_flag = in.nextInt();
-
-      if (emergency_flag){
-        System.out.println("Which airport do you want to schedule emergency events?");
-        int airport_flag = in.nextInt();
-        System.out.println("Which airport do you want to schedule emergency events?");
-        int
-      }
-
-      in.close();
-*/
       String[] instructions = new String[11];
       instructions[0] = "Use of arguments:";
       instructions[1] ="args[0] - number of airport";
@@ -66,16 +47,13 @@ public class AirportSim {
           }
           System.exit(0);
       }
-      
-
-
 /**
      * args:
      *    args[0] - number of airport;
      *    args[1] - number of runways for each airport, default is 2;
-     *    args[2] - number of planes, default is 50;
+     *    args[2] - number of planes, default is 1000;
      *    args[3] - total of minutes for simulation run, default is 2000;
-     *    args[4] - number of airwayCapacity between two airports, default is 8;
+     *    args[4] - number of airwayCapacity between two airports, default is 0;
      *    args[5] - random seed, default is 0.
      *    args[6] - emergency event schedule flag 1 for yes, default is 0;
      *    args[7] - emergency event scheduled airport index, default is 0;
