@@ -58,7 +58,7 @@ public class AirportSim {
      *    args[1] - number of runways for each airport, default is 2;
      *    args[2] - number of planes, default is 50;
      *    args[3] - total of minutes for simulation run, default is 2000;
-     *    args[4] - number of airwayCapacity between two airports, default is 8;
+     *    args[4] - number of airwayCapacity between two airports, default is 0;
      *    args[5] - random seed, default is 0.
      *    args[6] - emergency event schedule flag 1 for yes, default is 0;
      *    args[7] - emergency event scheduled airport index, default is 0;
@@ -79,9 +79,9 @@ public class AirportSim {
       int runway_flag = args.length < 2 ? 2: Integer.parseInt(args[1]);
       for (int i=0; i < getNumberofAirports(); ++i) {
         locationName = "Location-"+ Integer.toString(i);
-        int x = rdg.nextInt(100);
-        int y = rdg.nextInt(100);
-        airport = new Airport(locationName, 10, 10, 10, 34.05+x*i, -118.24+y*i, runway_flag);
+        int x = rdg.nextInt(50);
+        int y = rdg.nextInt(30);
+        airport = new Airport(locationName, 10, 50, 10, 34.05+x*i, -118.24+y*i, runway_flag);
         airport.setAirwayCap(args.length < 5 ? 8: Integer.parseInt(args[4]));
       }
 

@@ -23,7 +23,11 @@ public class Airport implements EventHandler {
   private int destination;
 
   //initialize airway capacity same for all airways
+
   private int airwayCapacity;
+
+//  private int airwayCapacity = 0;
+//>>>>>>> 4b43377d065befe145f50d2f721c75984e1d7940
 
   private double m_runwayTimeToLand;
   private double m_requiredTimeOnGround;
