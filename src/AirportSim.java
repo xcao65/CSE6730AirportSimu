@@ -32,9 +32,9 @@ public class AirportSim {
       instructions[0] = "Use of arguments:";
       instructions[1] ="args[0] - number of airport";
       instructions[2] = "args[1] - number of runways for each airport, default is 2.";
-      instructions[3] = "args[2] - number of planes, default is 50.";
+      instructions[3] = "args[2] - number of planes, default is 1000.";
       instructions[4] = "args[3] - total of minutes for simulation run, default is 2000.";
-      instructions[5] = "args[4] - number of airwayCapacity between two airports, default is 8.";
+      instructions[5] = "args[4] - number of airwayCapacity between two airports, default is 0.";
       instructions[6] = "args[5] - random seed, default is 0.";
       instructions[7] = "args[6] - emergency event schedule flag 1 for yes, default is 0.";
       instructions[8] = "args[7] - emergency event scheduled airport index, default is 0.";
