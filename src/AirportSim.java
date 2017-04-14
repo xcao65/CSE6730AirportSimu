@@ -32,7 +32,7 @@ public class AirportSim {
       int n = in.nextInt();
       in.close();
 
-      List<Airplane> airplanes = new ArrayList();
+      List<Airplane> airplanes = new ArrayList<>();
       //initiate several airports(airport_name, runwayTimeToLand, requiredTimeOnGround,
       //takeOffTime, X, Y coordinates, number_of_runways)
       String locationName;

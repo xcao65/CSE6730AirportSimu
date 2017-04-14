@@ -75,7 +75,7 @@ public class Airport implements EventHandler {
     passengersOut = 0;
     total_cycling_time = 0;
     rand = new Random();
-    eventQueue = new ArrayDeque();
+    eventQueue = new ArrayDeque<>();
     // add emergency status
     emergency = false;
     neighbor = null;
@@ -426,7 +426,7 @@ public void handle(Event event) {
     // check if there is waiting planes to departure or landing
     // if departure: reschedule a departure event + emergency_duration
     // if arrival: reschedule an arrival events for it to the nearest airports
-    Deque<AirportEvent> currQueue = new ArrayDeque();
+    Deque<AirportEvent> currQueue = new ArrayDeque<>();
     while (!eventQueue.isEmpty()){
       AirportEvent ae = eventQueue.poll();
       if (ae.getType() == AirportEvent.PLANE_TAKEOFF) {
