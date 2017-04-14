@@ -47,10 +47,31 @@ public class AirportSim {
 
       in.close();
 */
+      String[] instructions = new String[11];
+      instructions[0] = "Use of arguments:";
+      instructions[1] ="args[0] - number of airport";
+      instructions[2] = "args[1] - number of runways for each airport, default is 2.";
+      instructions[3] = "args[2] - number of planes, default is 50.";
+      instructions[4] = "args[3] - total of minutes for simulation run, default is 2000.";
+      instructions[5] = "args[4] - number of airwayCapacity between two airports, default is 8.";
+      instructions[6] = "args[5] - random seed, default is 0.";
+      instructions[7] = "args[6] - emergency event schedule flag 1 for yes, default is 0.";
+      instructions[8] = "args[7] - emergency event scheduled airport index, default is 0.";
+      instructions[9] = "args[8] - emergency event schedule start_time, default is 500.";
+      instructions[10] = "args[9] - emergency event scheduled duration, default is 600.";
+
+      if(args.length < 1) {
+          for(String s: instructions) {
+              System.out.println(s);
+          }
+          System.exit(0);
+      }
+      
+
 
 /**
      * args:
-     *    args[0] - number of airport, default is 50;
+     *    args[0] - number of airport;
      *    args[1] - number of runways for each airport, default is 2;
      *    args[2] - number of planes, default is 50;
      *    args[3] - total of minutes for simulation run, default is 2000;
@@ -71,7 +92,7 @@ public class AirportSim {
       String locationName;
       Airport airport;
 
-      setNumberofAirports(args.length < 1 ? 50: Integer.parseInt(args[0]));
+      setNumberofAirports(Integer.parseInt(args[0]));
 
       int runway_flag = args.length < 2 ? 3: Integer.parseInt(args[1]);
       for (int i=0; i < getNumberofAirports(); ++i) {
@@ -79,7 +100,7 @@ public class AirportSim {
         int x = rdg.nextInt(50);
         int y = rdg.nextInt(30);
         airport = new Airport(locationName, 10, 50, 10, 34.05+x*i, -118.24+y*i, runway_flag);
-        airport.setAirwayCap(args.length < 5 ? 0: Integer.parseInt(args[4]));
+        airport.setAirwayCap(args.length < 5 ? 10: Integer.parseInt(args[4]));
       }
 
       Airport.get_nearest_neighbor();
