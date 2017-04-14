@@ -1,4 +1,4 @@
-//insert your name 
+//insert your name
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
@@ -17,38 +17,43 @@ public class Airplane {
         m_name = name;
         m_speed = speed;
         passengerCapacity = num;
-        m_numberPassengers = new Random().nextInt(passengerCapacity);
+        // add range of the number of passengers.
+        int base = num/2;
+        m_numberPassengers = new Random().nextInt(num-base); // should change seed here!
+        m_numberPassengers = base + m_numberPassengers;
         trace = new ArrayList<>();
     }
 
     public String getName() {
         return m_name;
     }
-    
+
     public double getSpeed() {
     	return m_speed;
     }
-    
+
     public void setSpeed(double speed) {
     	m_speed = speed;
     }
-    
+
     public int getCapacity() {
     	return passengerCapacity;
     }
-    
-    public void setCapacity(int num) {
-    	passengerCapacity = num;
+
+    //TODO!!!! change this
+    public void setCapacity(int cap) {
+    	passengerCapacity = cap;
     }
-    
+
     public int getPassengerNo() {
     	return m_numberPassengers;
 	}
-    
+
+    //TODO!!!! change this
     public void setPassenger(int num) {
     	m_numberPassengers = num;
     }
-    
+
     public void addTrace(String s) {
     	trace.add(s);
     }
@@ -79,7 +84,7 @@ public class Airplane {
     	}
     	System.out.println("--------------------------------------------------");
     }
-    
+
     public void outputTraceFile() {
     	try{
     	    PrintWriter writer = new PrintWriter("output/" + this.getName() + "_trace.txt", "UTF-8");
@@ -88,7 +93,7 @@ public class Airplane {
         	}
     	    writer.close();
     	} catch (IOException e) {
-    		
+
     	}
     }
 }
