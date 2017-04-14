@@ -374,10 +374,10 @@ public void handle(Event event) {
 
     // if destination is in emergency
     if (destinationAirport.getEmergency()){
-      String trace5 = String.format("%.2f: get emergency at %s", Simulator.getCurrentTime(), destinationAirport.getName());
+      String trace5 = String.format("\u001B[31m" + "%.2f: get emergency at %s", Simulator.getCurrentTime(), destinationAirport.getName() + "\u001B[0m");
       airplane.addTrace(trace5);
       destinationAirport = destinationAirport.getNeighbor();
-      trace5 = String.format("%.2f: re-route to %s", Simulator.getCurrentTime(), destinationAirport.getName());
+      trace5 = String.format("\u001B[32m" + "%.2f: re-route to %s", Simulator.getCurrentTime(), destinationAirport.getName() + "\u001B[0m");
       airplane.addTrace(trace5);
       destination = global_airports.indexOf(destinationAirport);
     }
