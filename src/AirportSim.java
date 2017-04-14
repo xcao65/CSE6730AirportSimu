@@ -41,7 +41,7 @@ public class AirportSim {
         locationName = "Location-"+ Integer.toString(i);
         int x = seed.nextInt(50);
         int y = seed.nextInt(30);
-        airport = new Airport(locationName, 10, 10, 10, 34.05+x*i, -118.24+y*i, 8);
+        airport = new Airport(locationName, 10, 10, 10, 34.05+x*i, -118.24+y*i, 2);
       }
 
       Airport.get_nearest_neighbor();
@@ -56,7 +56,7 @@ public class AirportSim {
         arrangeEvent(airplane, 0, 0);
       }
 
-      AirportEvent EME = new AirportEvent(100, Airport.get_global_airports().get(0), 4, null);
+      AirportEvent EME = new AirportEvent(500, Airport.get_global_airports().get(0), 4, null);
       Simulator.schedule(EME);
 
       Simulator.stopAt(2000);
@@ -86,17 +86,17 @@ public class AirportSim {
     int idx = new Random().nextInt(6);
     switch(idx) {
       case 0: plane = new Airplane("A320", 0.28, 250);
-      break;
+              break;
       case 1: plane = new Airplane("A380", 0.4, 400);
-      break;
+              break;
       case 2: plane = new Airplane("Boeing747", 0.45, 320);
-      break;
+              break;
       case 3: plane = new Airplane("Boeing737", 0.35, 200);
-      break;
+              break;
       case 4: plane = new Airplane("F22", 0.5, 20);
-      break;
+              break;
       default: plane =new Airplane("CRJ-900", 0.3, 285);
-      break;
+              break;
     }
     return plane;
   }

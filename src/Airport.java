@@ -120,12 +120,12 @@ public class Airport implements EventHandler {
   public void setED(double d){
     emergency_duration = d;
   }
-  /*
+
   public double calculate_distance(Airport airport) {
   return Math.sqrt(Math.pow(this.getX() - airport.getX(), 2) + Math.pow(this.getY() - airport.getY(), 2));
 }
-*/
 
+/*
 // TODO CHANGE this function!!!
 public double calculate_distance(Airport b) {
   double d1 = b.getX()- this.getX();
@@ -136,7 +136,7 @@ public double calculate_distance(Airport b) {
   double c = 2 * Math.atan2(Math.sqrt(a0), Math.sqrt(1 - a0));
   return R * c;
 }
-
+*/
 
 //get destination airport index
 public int getDestinationIndex() {
@@ -358,12 +358,16 @@ public void handle(Event event) {
 
     //get the destination which is stored in airplane object, reassigned during arrival event
     destination = airplane.getDestination();
+
     Airport destinationAirport = global_airports.get(destination);
 
     // if destination is in emergency
     if (destinationAirport.getEmergency()){
-      //
+      String trace5 = String.format("%.2f: get emergency at %s", Simulator.getCurrentTime(), destinationAirport.getName());
+      airplane.addTrace(trace5);
       destinationAirport = destinationAirport.getNeighbor();
+      trace5 = String.format("%.2f: re-route to %s", Simulator.getCurrentTime(), destinationAirport.getName());
+      airplane.addTrace(trace5);
       destination = global_airports.indexOf(destinationAirport);
     }
     //increase corresponding airway matrix number
@@ -376,9 +380,13 @@ public void handle(Event event) {
     double flightTime = distance / speed;
 
     //add a record in airplane
+    if (destinationAirport.getEmergency()){
+
+    }
     String trace4 = String.format("%.2f: departs from %s to %s", Simulator.getCurrentTime(), this.getName(), destinationAirport.getName());
     airplane.addTrace(trace4);
 
+    airplane.setDestination(destination);
     AirportEvent arrivalEvent = new AirportEvent(flightTime, destinationAirport, AirportEvent.PLANE_ARRIVES, airplane);
     Simulator.schedule(arrivalEvent);
 
@@ -409,7 +417,8 @@ public void handle(Event event) {
     for(int i = 0; i < runwayFree.length; i++) {
       runwayFree[i] = false;
     }
-    AirportEvent emergency_End = new AirportEvent(0, this, AirportEvent.AIRPORT_EMER_END, null);
+    //System.out.println("")
+    AirportEvent emergency_End = new AirportEvent(500, this, AirportEvent.AIRPORT_EMER_END, null);
     Simulator.schedule(emergency_End);
 
     // check if there is waiting planes to departure or landing
