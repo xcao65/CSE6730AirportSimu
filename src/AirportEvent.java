@@ -13,6 +13,7 @@ public class AirportEvent extends Event {
     private int runway;
     private int eventType;
     private double delay;
+    private double duration;
 
     AirportEvent(double delay, EventHandler handler, int eventType, Airplane airplane) {
         super(delay, handler, eventType);
@@ -20,6 +21,7 @@ public class AirportEvent extends Event {
         this.eventType = eventType;
         this.runway = -1; //? what does it do?
         this.delay = delay;
+        this.duration = 0;
     }
 /*
     // add an airport event constructor
@@ -39,11 +41,11 @@ public class AirportEvent extends Event {
     }
 
     public double getDelay() {
-       return this.delay;
+       return this.duration;
     }
 
     public void setDelay(double d){
-       this.delay = d;
+       this.duration = d;
     }
 
     public Airplane checkFlight() {

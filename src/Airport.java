@@ -23,7 +23,7 @@ public class Airport implements EventHandler {
   private int destination;
 
   //initialize airway capacity same for all airways
-  private int airwayCapacity = 10;
+  private int airwayCapacity;
 
   private double m_runwayTimeToLand;
   private double m_requiredTimeOnGround;
@@ -58,7 +58,7 @@ public class Airport implements EventHandler {
   private static int[][] m_airwayNumber = new int[number_of_airports][number_of_airports];
 
   public static void setAirwayNumber(int start, int destination) {
-    m_airwayNumber[start][destination]++;
+     m_airwayNumber[start][destination]++;
   }
 
   public Airport(String name, double runwayTimeToLand, double requiredTimeOnGround,
@@ -93,6 +93,10 @@ public class Airport implements EventHandler {
 
   public String getName() {
     return m_airportName;
+  }
+
+  public void setAirwayCap(int n){
+     this.airwayCapacity = n;
   }
 
   public void printPassengerFlow() {
