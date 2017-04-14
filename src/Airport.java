@@ -23,7 +23,7 @@ public class Airport implements EventHandler {
   private int destination;
 
   //initialize airway capacity same for all airways
-  private int airwayCapacity = 10;
+  private int airwayCapacity = 0;
 
   private double m_runwayTimeToLand;
   private double m_requiredTimeOnGround;
@@ -292,7 +292,7 @@ public void handle(Event event) {
         }
 
         else {
-          AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
+          AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_TAKEOFF, ae.checkFlight());
           departEvent.setRunWay(local_runway);
           Simulator.schedule(departEvent);
         }
@@ -401,7 +401,7 @@ public void handle(Event event) {
         Simulator.schedule(landingEvent);
       }
       else {
-        AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
+        AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_TAKEOFF, ae.checkFlight());
         departEvent.setRunWay(local_runway);
         Simulator.schedule(departEvent);
       }
