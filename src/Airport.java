@@ -75,7 +75,7 @@ public class Airport implements EventHandler {
     passengersOut = 0;
     total_cycling_time = 0;
     rand = new Random();
-    eventQueue = new ArrayDeque<>();
+    eventQueue = new ArrayDeque();
     // add emergency status
     emergency = false;
     neighbor = null;
@@ -84,6 +84,8 @@ public class Airport implements EventHandler {
     //add airport object to the static airport list
     global_airports.add(this);
 
+    //if the number of runways is negative or zero, it will be set to default value 1
+    if (number_of_runway<=0)  number_of_runway = 1;
     //initiate and initailize a boolean array to store runway status
     runwayFree = new boolean[number_of_runway];
     Arrays.fill(runwayFree, true);
@@ -424,7 +426,7 @@ public void handle(Event event) {
     // check if there is waiting planes to departure or landing
     // if departure: reschedule a departure event + emergency_duration
     // if arrival: reschedule an arrival events for it to the nearest airports
-    Deque<AirportEvent> currQueue = new ArrayDeque<>();
+    Deque<AirportEvent> currQueue = new ArrayDeque();
     while (!eventQueue.isEmpty()){
       AirportEvent ae = eventQueue.poll();
       if (ae.getType() == AirportEvent.PLANE_TAKEOFF) {

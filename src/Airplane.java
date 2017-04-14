@@ -21,7 +21,7 @@ public class Airplane {
         int base = num/2;
         m_numberPassengers = new Random().nextInt(num-base); // should change seed here!
         m_numberPassengers = base + m_numberPassengers;
-        trace = new ArrayList<>();
+        trace = new ArrayList();
     }
 
     public String getName() {
