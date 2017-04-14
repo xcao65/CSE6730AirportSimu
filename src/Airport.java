@@ -300,8 +300,9 @@ public void handle(Event event) {
         }
 
         else {
-          AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
-          departEvent.setRunWay(local_runway);
+          AirportEvent departEvent = new AirportEvent(0, this, AirportEvent.PLANE_TAKEOFF, ae.checkFlight());
+          // departEvent.setRunWay(local_runway);
+          runwayFree[local_runway] = true;
           Simulator.schedule(departEvent);
         }
       }
@@ -409,8 +410,9 @@ public void handle(Event event) {
         Simulator.schedule(landingEvent);
       }
       else {
-        AirportEvent departEvent = new AirportEvent(m_takeOffTime, this, AirportEvent.PLANE_DEPARTS, ae.checkFlight());
-        departEvent.setRunWay(local_runway);
+        AirportEvent departEvent = new AirportEvent(0, this, AirportEvent.PLANE_TAKEOFF, ae.checkFlight());
+        // departEvent.setRunWay(local_runway);
+        runwayFree[local_runway] = true;
         Simulator.schedule(departEvent);
       }
     }
